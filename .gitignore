@@ -1,0 +1,57 @@
+# Ignore Visual Studio user-specific files
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Build results
+[Bb]in/
+[Oo]bj/
+
+# NuGet packages
+*.nupkg
+# The packages folder can be ignored if package restore is enabled
+**/packages/*
+!**/packages/build/
+!**/packages/repositories.config
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# User-specific files
+*.swp
+*.bak
+*.tmp
+*.tmp.*
+*.log
+
+# Rider / JetBrains
+.idea/
+*.sln.iml
+
+# ReSharper
+_ReSharper*/
+*.DotSettings.user
+
+# Others
+*.dbmdl
+*.pdb
+
+# Local test results
+TestResults/
+
+# Auto-generated files
+Generated\ Files/
+
+# ASP.NET stuff
+*.Publish.xml
+
+# Dotnet-specific
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Ignore git-ignored files accidentally added
+!/.gitignore
