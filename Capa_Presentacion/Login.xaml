@@ -110,7 +110,7 @@
     <Grid Background="{StaticResource BackgroundGradient}">
         <Canvas>
             <Ellipse Width="300" Height="300" 
-                     Canvas.Left="-100" Canvas.Top="-100"
+                     Canvas.Left="-136" Canvas.Top="-143"
                      Opacity="0.1">
                 <Ellipse.Fill>
                     <RadialGradientBrush>
@@ -122,7 +122,7 @@
 
             <Ellipse Width="200" Height="200" 
                      Canvas.Right="-50" Canvas.Bottom="-50"
-                     Opacity="0.1">
+                     Opacity="0.1" Canvas.Left="562" Canvas.Top="586">
                 <Ellipse.Fill>
                     <RadialGradientBrush>
                         <GradientStop Color="White" Offset="0"/>
@@ -263,7 +263,7 @@
                 <Button x:Name="btnLogin"
                         Content="INICIAR SESIÓN" 
                         Style="{StaticResource ModernButton}"
-                        Margin="0,0,0,25"/>
+                        Margin="0,0,0,25" Click="btnLogin_Click"/>
 
             </StackPanel>
         </Border>

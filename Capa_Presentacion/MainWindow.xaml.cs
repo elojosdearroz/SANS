@@ -25,6 +25,7 @@ namespace Capa_Presentacion
         public MainWindow()
         {
             InitializeComponent();
+            MainFrame.Navigate(new inscripcionMateria());
         }
     }
 }
