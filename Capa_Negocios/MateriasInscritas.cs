@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace Capa_Negocios
 {
-    public class Class1
+    public class MateriasInscritas
     {
+        public int Id { get; set; }
+        public int IdEstudiante { get; set; }
+        public int IdEdicion { get; set; }
     }
 }

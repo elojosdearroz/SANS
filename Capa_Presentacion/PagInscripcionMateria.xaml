@@ -10,8 +10,8 @@
 
     <Page.Resources>
         <LinearGradientBrush x:Key="BackgroundGradient" StartPoint="0,0" EndPoint="1,1">
-            <GradientStop Color="#f8f9fa" Offset="0"/>
-            <GradientStop Color="#e9ecef" Offset="1"/>
+            <GradientStop Color="#ffff" Offset="0"/>
+            <GradientStop Color="#ffff" Offset="1"/>
         </LinearGradientBrush>
 
         <Style x:Key="ModernButton" TargetType="Button">
@@ -283,7 +283,7 @@
                         Style="{StaticResource ModernButton}"
                         VerticalAlignment="Bottom"
                         Width="120"
-                        Height="32"/>
+                        Height="32" Click="btnBuscar_Click"/>
             </Grid>
 
             <!-- Nombre Carrera (Ahora más grande) -->
@@ -329,7 +329,7 @@
                               Padding="8,0"
                               Height="32"
                               VerticalContentAlignment="Center"
-                              Foreground="#2c3e50"/>
+                              Foreground="#2c3e50" SelectionChanged="SeleccionarPlan"/>
                 </Border>
             </StackPanel>
 
@@ -353,16 +353,11 @@
                             BorderThickness="1" 
                             CornerRadius="4">
                         <DataGrid x:Name="dgMateriasDisponibles" 
-                                  Style="{StaticResource ModernDataGrid}"
-                                  Height="300"
-                                  MinWidth="400">
-                            <DataGrid.Columns>
-                                <DataGridTextColumn Header="Código" Binding="{Binding Codigo}" Width="90" MinWidth="90"/>
-                                <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" Width="180" MinWidth="150"/>
-                                <DataGridTextColumn Header="Créditos" Binding="{Binding Creditos}" Width="70" MinWidth="70"/>
-                                <DataGridTextColumn Header="Prerrequisitos" Binding="{Binding Prerrequisitos}" Width="120" MinWidth="100"/>
-                            </DataGrid.Columns>
-                        </DataGrid>
+                              Style="{StaticResource ModernDataGrid}"
+                              Height="300"
+                              MinWidth="400"
+                              AutoGenerateColumns="True" 
+                              SelectionChanged="dgMateriasDisponibles_SelectionChanged"/>
                     </Border>
                 </StackPanel>
 
@@ -378,15 +373,10 @@
                             BorderThickness="1" 
                             CornerRadius="4">
                         <DataGrid x:Name="dgMateriasSeleccionadas" 
-                                  Style="{StaticResource ModernDataGrid}"
-                                  Height="300"
-                                  MinWidth="350">
-                            <DataGrid.Columns>
-                                <DataGridTextColumn Header="Código" Binding="{Binding Codigo}" Width="90" MinWidth="90"/>
-                                <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" Width="200" MinWidth="180"/>
-                                <DataGridTextColumn Header="Créditos" Binding="{Binding Creditos}" Width="70" MinWidth="70"/>
-                            </DataGrid.Columns>
-                        </DataGrid>
+                              Style="{StaticResource ModernDataGrid}"
+                              Height="300"
+                              MinWidth="400"
+                              AutoGenerateColumns="True" />
                     </Border>
 
                     <!-- TextBlock para Precio Total -->
@@ -424,7 +414,7 @@
                             Content="SELECCIONAR"
                             Style="{StaticResource SelectButton}"
                             Width="130"
-                            Margin="0,0,10,0"/>
+                            Margin="0,0,10,0" Click="btnSeleccionar_Click"/>
 
                     <Button x:Name="btnEliminar"
                             Content="ELIMINAR"

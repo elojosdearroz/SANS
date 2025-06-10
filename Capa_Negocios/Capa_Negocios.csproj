@@ -42,8 +42,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Asistencia.cs" />
+    <Compile Include="Clases\Administrativo.cs" />
+    <Compile Include="Clases\Docente.cs" />
+    <Compile Include="Clases\Estudiante.cs" />
+    <Compile Include="RellenarFroms.cs" />
+    <Compile Include="Materia.cs" />
+    <Compile Include="MateriasInscritas.cs" />
+    <Compile Include="Nota.cs" />
+    <Compile Include="Persona.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Capa_Datos\Capa_Datos.csproj">
+      <Project>{85f98608-c12a-4879-99a1-6a1cb1f88b23}</Project>
+      <Name>Capa_Datos</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
