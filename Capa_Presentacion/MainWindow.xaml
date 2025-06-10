@@ -5,8 +5,292 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Capa_Presentacion"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="Menu principal Proyecto" Height="800" Width="1200"
+        WindowStartupLocation="CenterScreen" 
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent">
+
+    <Window.Resources>
+        <LinearGradientBrush x:Key="BackgroundGradient" StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="#2c3e50" Offset="0"/>
+            <GradientStop Color="#3498db" Offset="1"/>
+        </LinearGradientBrush>
+
+        <LinearGradientBrush x:Key="SidebarGradient" StartPoint="0,0" EndPoint="0,1">
+            <GradientStop Color="#8e44ad" Offset="0"/>
+            <GradientStop Color="#9b59b6" Offset="0.5"/>
+            <GradientStop Color="#663399" Offset="1"/>
+        </LinearGradientBrush>
+
+        <Style x:Key="MenuToggleButton" TargetType="Button">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Width" Value="50"/>
+            <Setter Property="Height" Value="50"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" 
+                                CornerRadius="5">
+                            <ContentPresenter HorizontalAlignment="Center" 
+                                              VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background">
+                                    <Setter.Value>
+                                        <SolidColorBrush Color="White" Opacity="0.1"/>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="SidebarButton" TargetType="Button">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Height" Value="50"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="Padding" Value="20,0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" 
+                                CornerRadius="5"
+                                Margin="10,2">
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                                              VerticalAlignment="Center"
+                                              Margin="{TemplateBinding Padding}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background">
+                                    <Setter.Value>
+                                        <SolidColorBrush Color="White" Opacity="0.2"/>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- "Animaciones" de la barrar  -->
+        <Storyboard x:Key="ExpandSidebar">
+            <DoubleAnimation Storyboard.TargetName="SidebarBorder" 
+                             Storyboard.TargetProperty="Width" 
+                             To="250" Duration="0:0:0.3">
+                <DoubleAnimation.EasingFunction>
+                    <CubicEase EasingMode="EaseOut"/>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+            <DoubleAnimation Storyboard.TargetName="SidebarContent" 
+                             Storyboard.TargetProperty="Opacity" 
+                             To="1" Duration="0:0:0.4"
+                             BeginTime="0:0:0.1"/>
+        </Storyboard>
+
+        <Storyboard x:Key="CollapseSidebar">
+            <DoubleAnimation Storyboard.TargetName="SidebarContent" 
+                             Storyboard.TargetProperty="Opacity" 
+                             To="0" Duration="0:0:0.2"/>
+            <DoubleAnimation Storyboard.TargetName="SidebarBorder" 
+                             Storyboard.TargetProperty="Width" 
+                             To="60" Duration="0:0:0.3"
+                             BeginTime="0:0:0.1">
+                <DoubleAnimation.EasingFunction>
+                    <CubicEase EasingMode="EaseOut"/>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+        </Storyboard>
+
+        <!-- Animación de entrada -->
+        <Storyboard x:Key="FadeInAnimation">
+            <DoubleAnimation Storyboard.TargetProperty="Opacity" 
+                             From="0" To="1" Duration="0:0:0.8"/>
+        </Storyboard>
+    </Window.Resources>
+
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="Loaded">
+            <BeginStoryboard Storyboard="{StaticResource FadeInAnimation}"/>
+        </EventTrigger>
+    </Window.Triggers>
+
+    <Border Background="{StaticResource BackgroundGradient}"
+            CornerRadius="15">
+        <Border.Effect>
+            <DropShadowEffect Color="Black" Opacity="0.3" ShadowDepth="20" BlurRadius="30"/>
+        </Border.Effect>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <!-- Columna de la barra lateral -->
+                <ColumnDefinition Width="Auto"/>
+                <!-- Columna del contenido principal -->
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- BARRA LATERAL -->
+            <Border x:Name="SidebarBorder"
+                    Grid.Column="0" 
+                    Width="60"
+                    Background="{StaticResource SidebarGradient}"
+                    CornerRadius="15,0,0,15">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <!-- Header con botón de menú -->
+                        <RowDefinition Height="70"/>
+                        <!-- Contenido del menú -->
+                        <RowDefinition Height="*"/>
+                        <!-- Footer -->
+                        <RowDefinition Height="60"/>
+                    </Grid.RowDefinitions>
+
+                    <!-- Header - Botón hamburguesa -->
+                    <Button x:Name="btnToggleMenu" 
+                            Grid.Row="0"
+                            Style="{StaticResource MenuToggleButton}"
+                            Content="☰"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Click="ToggleMenu_Click"/>
+
+                    <!-- Contenido del menú -->
+                    <StackPanel x:Name="SidebarContent" 
+                                Grid.Row="1" 
+                                Margin="0,20"
+                                Opacity="0">
+
+                        <!-- Logo/Título -->
+                        <TextBlock Text="UNIVALLE" 
+                                   Foreground="White"
+                                   FontSize="18"
+                                   FontWeight="Bold"
+                                   HorizontalAlignment="Center"
+                                   Margin="0,0,0,30"/>
+
+                        <!-- Botones del menú -->
+                        <Button x:Name="btnInscribirMaterias"
+                                Content="📚 Inscribir Materias" 
+                                Style="{StaticResource SidebarButton}"
+                                Click="InscribirMaterias_Click"/>
+
+                        <Button x:Name="btnAgregarMas"
+                                Content="CopiarBotones" 
+                                Style="{StaticResource SidebarButton}"
+                                Click="InscribirMaterias_Click"/>
+
+                        <!-- Separador -->
+                        <Separator Background="White" 
+                                   Opacity="0.3" 
+                                   Margin="20,10"/>
+
+                        <!-- Aquí puedes agregar más botones en el futuro -->
+
+                    </StackPanel>
+
+                    <!-- Footer -->
+                    <Border Grid.Row="2" 
+                            Background="Black"
+                            Opacity="0.2"
+                            CornerRadius="0,0,0,15">
+                        <Button x:Name="btnCerrarSesion"
+                                Content="🚪"
+                                Style="{StaticResource MenuToggleButton}"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                FontSize="16"
+                                ToolTip="Cerrar Sesión"
+                                Click="CerrarSesion_Click"/>
+                    </Border>
+                </Grid>
+            </Border>
+
+            <!-- ÁREA DE CONTENIDO PRINCIPAL -->
+            <Border Grid.Column="1" 
+                    Background="White"
+                    CornerRadius="0,15,15,0"
+                    Margin="2,0,0,0">
+
+                <!-- Barra superior -->
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="60"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <!-- Header del contenido -->
+                    <Border Grid.Row="0" 
+                            Background="#f8f9fa"
+                            CornerRadius="0,15,0,0">
+                        <Grid>
+                            <TextBlock Text="Sistema de Gestión Académica" 
+                                       FontSize="20"
+                                       FontWeight="SemiBold"
+                                       Foreground="#2c3e50"
+                                       VerticalAlignment="Center"
+                                       Margin="30,0"/>
+
+                            <!-- Botón cerrar ventana -->
+                            <Button Content="✕" 
+                                    HorizontalAlignment="Right" 
+                                    VerticalAlignment="Center"
+                                    Width="40" Height="40"
+                                    Background="Transparent"
+                                    BorderThickness="0"
+                                    FontSize="16"
+                                    FontWeight="Bold"
+                                    Foreground="#7f8c8d"
+                                    Cursor="Hand"
+                                    Margin="0,0,15,0"
+                                    Click="CloseButton_Click"/>
+                        </Grid>
+                    </Border>
+
+                    <!-- Frame para el contenido de las páginas -->
+                    <Frame x:Name="MainFrame" 
+                           Grid.Row="1"
+                           NavigationUIVisibility="Hidden"
+                           Background="White">
+                        <!-- Contenido por defecto -->
+                        <Frame.Content>
+                            <Grid Background="White">
+                                <StackPanel HorizontalAlignment="Center" 
+                                            VerticalAlignment="Center">
+                                    <TextBlock Text="🏛️" 
+                                               FontSize="80" 
+                                               HorizontalAlignment="Center"
+                                               Margin="0,0,0,20"/>
+                                    <TextBlock Text="Bienvenido al SIU :D" 
+                                               FontSize="24" 
+                                               FontWeight="SemiBold"
+                                               HorizontalAlignment="Center"
+                                               Foreground="#2c3e50"
+                                               Margin="0,0,0,10"/>
+                                    <TextBlock Text="Selecciona una opción del menú lateral para comenzar" 
+                                               FontSize="16" 
+                                               HorizontalAlignment="Center"
+                                               Foreground="#7f8c8d"/>
+                                </StackPanel>
+                            </Grid>
+                        </Frame.Content>
+                    </Frame>
+                </Grid>
+            </Border>
+        </Grid>
+    </Border>
 </Window>

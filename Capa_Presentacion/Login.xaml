@@ -13,8 +13,9 @@
 
     <Window.Resources>
         <LinearGradientBrush x:Key="BackgroundGradient" StartPoint="0,0" EndPoint="1,1">
-            <GradientStop Color="#2c3e50" Offset="0"/>
-            <GradientStop Color="#3498db" Offset="1"/>
+            <GradientStop Color="#8e44ad" Offset="0"/>
+            <GradientStop Color="#9b59b6" Offset="0.5"/>
+            <GradientStop Color="#663399" Offset="1"/>
         </LinearGradientBrush>
         <LinearGradientBrush x:Key="LoginPanelGradient" StartPoint="0,0" EndPoint="1,1">
             <GradientStop Color="#ffffff" Offset="0"/>
@@ -263,7 +264,7 @@
                 <Button x:Name="btnLogin"
                         Content="INICIAR SESIÓN" 
                         Style="{StaticResource ModernButton}"
-                        Margin="0,0,0,25"/>
+                        Margin="0,0,0,25" Click="btnLogin_Click"/>
 
             </StackPanel>
         </Border>
