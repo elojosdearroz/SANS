@@ -56,7 +56,7 @@ namespace Capa_Presentacion
         // Navega a la página de inscripción de materias
         private void InscribirMaterias_Click(object sender, RoutedEventArgs e)
         {
-            MainFrame.Navigate(new inscripcionMateria());
+            MainFrame.Navigate(new PagInscripcionMateria());
         }
 
         // Confirma y cierra la sesión actual
