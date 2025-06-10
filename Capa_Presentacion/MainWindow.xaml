@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Capa_Presentacion"
         mc:Ignorable="d"
+<<<<<<< HEAD
         Title="Menu principal Proyecto" Height="800" Width="1200"
         WindowStartupLocation="CenterScreen" 
         WindowStyle="None"
@@ -293,4 +294,10 @@
             </Border>
         </Grid>
     </Border>
+=======
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" />
+    </Grid>
+>>>>>>> 3175bd55702a1c123812aaa5baea910f39cddf0f
 </Window>

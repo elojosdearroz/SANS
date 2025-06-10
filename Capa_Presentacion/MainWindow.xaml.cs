@@ -25,6 +25,7 @@ namespace Capa_Presentacion
         public MainWindow()
         {
             InitializeComponent();
+<<<<<<< HEAD
             InitializeSidebar();
         }
 
@@ -108,6 +109,9 @@ namespace Capa_Presentacion
                 this.DragMove();
             }
             base.OnMouseLeftButtonDown(e);
+=======
+            MainFrame.Navigate(new inscripcionMateria());
+>>>>>>> 3175bd55702a1c123812aaa5baea910f39cddf0f
         }
     }
 }

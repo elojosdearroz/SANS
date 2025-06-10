@@ -32,6 +32,10 @@ namespace Capa_Presentacion
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
             new MainWindow().Show();
+<<<<<<< HEAD
+=======
+            this.Close();  
+>>>>>>> 3175bd55702a1c123812aaa5baea910f39cddf0f
         }
     }
 }
