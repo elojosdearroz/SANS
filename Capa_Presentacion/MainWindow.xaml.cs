@@ -1,18 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Animation;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using Capa_Datos;
 using Capa_Negocios;
 
@@ -25,18 +14,17 @@ namespace Capa_Presentacion
         public MainWindow()
         {
             InitializeComponent();
-<<<<<<< HEAD
             InitializeSidebar();
         }
 
-        // Aqui se inicializa la barra laterail
+        // Inicializa la barra lateral colapsada
         private void InitializeSidebar()
         {
             SidebarBorder.Width = 60;
             SidebarContent.Opacity = 0;
         }
 
-        // Simplemente altera la barralateral
+        // Alternar entre expandir y colapsar el sidebar
         private void ToggleMenu_Click(object sender, RoutedEventArgs e)
         {
             if (!isSidebarExpanded)
@@ -51,49 +39,48 @@ namespace Capa_Presentacion
             isSidebarExpanded = !isSidebarExpanded;
         }
 
-        // Expandir la barra lateral
+        // Expande el sidebar con animación
         private void ExpandSidebar()
         {
             Storyboard expandStoryboard = (Storyboard)FindResource("ExpandSidebar");
             expandStoryboard.Begin();
         }
 
-        // Colapsar la barra lateral
+        // Colapsa el sidebar con animación
         private void CollapseSidebar()
         {
             Storyboard collapseStoryboard = (Storyboard)FindResource("CollapseSidebar");
             collapseStoryboard.Begin();
         }
 
-        // El boton inscribir materias y lleva al nuevo frame
+        // Navega a la página de inscripción de materias
         private void InscribirMaterias_Click(object sender, RoutedEventArgs e)
         {
-            // Aquí navegarías a la página de inscripción de materias
-             MainFrame.Navigate(new inscripcionMateria());
+            MainFrame.Navigate(new inscripcionMateria());
         }
 
-        // Cerrar sesión
+        // Confirma y cierra la sesión actual
         private void CerrarSesion_Click(object sender, RoutedEventArgs e)
         {
             var result = MessageBox.Show("¿Está seguro que desea cerrar sesión?",
-                                       "Confirmar",
-                                       MessageBoxButton.YesNo,
-                                       MessageBoxImage.Question);
+                                         "Confirmar",
+                                         MessageBoxButton.YesNo,
+                                         MessageBoxImage.Question);
 
             if (result == MessageBoxResult.Yes)
             {
-                // Aquí deberiamos poenr que abra de nuevo dlo del login
+                // Aquí puedes navegar de vuelta al login si tienes uno, o cerrar la app
                 Application.Current.Shutdown();
             }
         }
 
-        // Cerrar la ventana
+        // Confirma y cierra completamente la aplicación
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
             var result = MessageBox.Show("¿Está seguro que desea salir del sistema?",
-                                       "Confirmar salida",
-                                       MessageBoxButton.YesNo,
-                                       MessageBoxImage.Question);
+                                         "Confirmar salida",
+                                         MessageBoxButton.YesNo,
+                                         MessageBoxImage.Question);
 
             if (result == MessageBoxResult.Yes)
             {
@@ -101,7 +88,7 @@ namespace Capa_Presentacion
             }
         }
 
-        // Esto si quieren lo quitan o no c pero es para poder mover la ventana ya que le quite el estilo de windows
+        // Permite mover la ventana con clic sostenido (porque no tiene barra de título de Windows)
         protected override void OnMouseLeftButtonDown(System.Windows.Input.MouseButtonEventArgs e)
         {
             if (e.ButtonState == System.Windows.Input.MouseButtonState.Pressed)
@@ -109,9 +96,6 @@ namespace Capa_Presentacion
                 this.DragMove();
             }
             base.OnMouseLeftButtonDown(e);
-=======
-            MainFrame.Navigate(new inscripcionMateria());
->>>>>>> 3175bd55702a1c123812aaa5baea910f39cddf0f
         }
     }
 }
