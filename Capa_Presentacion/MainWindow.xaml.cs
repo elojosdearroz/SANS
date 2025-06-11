@@ -97,5 +97,10 @@ namespace Capa_Presentacion
             }
             base.OnMouseLeftButtonDown(e);
         }
+
+        private void ImprimirRepote_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new PagReportes());
+        }
     }
 }

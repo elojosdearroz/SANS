@@ -356,8 +356,14 @@
                               Style="{StaticResource ModernDataGrid}"
                               Height="300"
                               MinWidth="400"
-                              AutoGenerateColumns="True" 
-                              SelectionChanged="dgMateriasDisponibles_SelectionChanged"/>
+                              SelectionChanged="dgMateriasDisponibles_SelectionChanged">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Materia" Binding="{Binding Nombre}" />
+                                <DataGridTextColumn Header="Grupo" Binding="{Binding Grupo}" />
+                                <DataGridTextColumn Header="Créditos" Binding="{Binding Creditos}" />
+                                <DataGridTextColumn Header="Horario" Binding="{Binding Horario}" />
+                            </DataGrid.Columns>
+                        </DataGrid>
                     </Border>
                 </StackPanel>
 
@@ -375,8 +381,14 @@
                         <DataGrid x:Name="dgMateriasSeleccionadas" 
                               Style="{StaticResource ModernDataGrid}"
                               Height="300"
-                              MinWidth="400"
-                              AutoGenerateColumns="True" />
+                              MinWidth="400" SelectionChanged="dgMateriasSeleccionadas_SelectionChanged">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Materia" Binding="{Binding Nombre}" />
+                                <DataGridTextColumn Header="Grupo" Binding="{Binding Grupo}" />
+                                <DataGridTextColumn Header="Créditos" Binding="{Binding Creditos}" />
+                                <DataGridTextColumn Header="Horario" Binding="{Binding Horario}" />
+                            </DataGrid.Columns>
+                        </DataGrid>
                     </Border>
 
                     <!-- TextBlock para Precio Total -->
@@ -394,7 +406,7 @@
                                    FontWeight="Bold"
                                    Foreground="#8e44ad"
                                    VerticalAlignment="Center"
-                                   Margin="5,0,0,0"/>
+                                   Margin="270,0,0,0"/>
                     </StackPanel>
                 </StackPanel>
             </Grid>
@@ -419,7 +431,7 @@
                     <Button x:Name="btnEliminar"
                             Content="ELIMINAR"
                             Style="{StaticResource DeleteButton}"
-                            Width="130"/>
+                            Width="130" Click="btnEliminar_Click"/>
                 </StackPanel>
 
                 <!-- Botón Inscribir -->
@@ -428,7 +440,7 @@
                         Content="INSCRIBIR"
                         Style="{StaticResource InscribirButton}"
                         Width="150"
-                        HorizontalAlignment="Right"/>
+                        HorizontalAlignment="Right" Click="btnInscribir_Click"/>
             </Grid>
         </Grid>
     </ScrollViewer>

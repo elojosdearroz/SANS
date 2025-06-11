@@ -138,6 +138,7 @@
                         <TextBlock Text="UNIVALLE" Foreground="White" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,0,0,30"/>
 
                         <Button x:Name="btnInscribirMaterias" Content="📚 Inscribir Materias" Style="{StaticResource SidebarButton}" Click="InscribirMaterias_Click"/>
+                        <Button x:Name="btnImprimirReporte" Content="📚 Imprimir Reporte" Style="{StaticResource SidebarButton}" Click="ImprimirRepote_Click"/>
                         <Button x:Name="btnAgregarMas" Content="CopiarBotones" Style="{StaticResource SidebarButton}" Click="InscribirMaterias_Click"/>
 
                         <Separator Background="White" Opacity="0.3" Margin="20,10"/>

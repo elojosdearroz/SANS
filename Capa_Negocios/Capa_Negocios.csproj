@@ -42,15 +42,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Asistencia.cs" />
-    <Compile Include="Clases\Administrativo.cs" />
-    <Compile Include="Clases\Docente.cs" />
-    <Compile Include="Clases\Estudiante.cs" />
-    <Compile Include="RellenarFroms.cs" />
-    <Compile Include="Materia.cs" />
-    <Compile Include="MateriasInscritas.cs" />
-    <Compile Include="Nota.cs" />
-    <Compile Include="Persona.cs" />
+    <Compile Include="Clases\Asistencia.cs" />
+    <Compile Include="Clases\Gestion.cs" />
+    <Compile Include="Clases\Persona_Clases\Administrativo.cs" />
+    <Compile Include="Clases\Persona_Clases\Docente.cs" />
+    <Compile Include="Clases\Persona_Clases\Estudiante.cs" />
+    <Compile Include="RellenarFromsInscripcion.cs" />
+    <Compile Include="Clases\Materia.cs" />
+    <Compile Include="Clases\MateriasInscritas.cs" />
+    <Compile Include="Clases\Nota.cs" />
+    <Compile Include="Clases\Persona.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
