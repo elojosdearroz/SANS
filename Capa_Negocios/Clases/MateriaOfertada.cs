@@ -13,9 +13,9 @@ namespace Capa_Negocios
         public int creditos { get; set; }
         public int semestre { get; set; }
         public int anio { get; set; }
-        public TimeSpan hora_Inicio { get; set; }
-        public TimeSpan hora_Fin { get; set; }
-        public string num_Aula { get; set; }
+        public TimeSpan hora_inicio { get; set; }
+        public TimeSpan hora_fin { get; set; }
+        public string num_aula { get; set; }
         public string bloque { get; set; }
         public string NombreDocente { get; set; }
     }

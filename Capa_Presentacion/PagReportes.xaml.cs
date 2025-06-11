@@ -57,17 +57,8 @@ namespace Capa_Presentacion
                 var adaptador = new pa_ReporteMateriasOfertadasTableAdapter();
                 var tabla = adaptador.GetData(idCarrera, idPlan, idGestion);
 
-                if (tabla.Rows.Count == 0)
-                {
-                    MessageBox.Show("No se encontraron resultados.");
-                    return;
-                }
                 string rutaReporte = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "ReporteMateriasOfertadas.rdlc");
-                if (!System.IO.File.Exists(rutaReporte))
-                {
-                    MessageBox.Show("No se encontró el archivo RDLC en la ruta: " + rutaReporte);
-                    return;
-                }
+
                 reportViewer.ReportPath = rutaReporte;
 
                 var datos = tabla.AsEnumerable()
@@ -78,9 +69,9 @@ namespace Capa_Presentacion
                     creditos = row.Field<int>("creditos"),
                     semestre = row.Field<int>("semestre"),
                     anio = row.Field<int>("anio"),
-                    hora_Inicio = row.Field<TimeSpan>("hora_inicio"),
-                    hora_Fin = row.Field<TimeSpan>("hora_fin"),
-                    num_Aula = row.Field<string>("num_aula"),
+                    hora_inicio = row.Field<TimeSpan>("hora_inicio"),
+                    hora_fin = row.Field<TimeSpan>("hora_fin"),
+                    num_aula = row.Field<string>("num_aula"),
                     bloque = row.Field<string>("bloque"),
                     NombreDocente = row.Field<string>("NombreDocente")
                 }).ToList();
@@ -95,7 +86,7 @@ namespace Capa_Presentacion
                 });
 
                 reportViewer.RefreshReport();
-
+                panelSinDatos.Visibility = Visibility.Collapsed;
                 reportViewer.Visibility = Visibility.Visible;
             }
             catch (Exception ex)
