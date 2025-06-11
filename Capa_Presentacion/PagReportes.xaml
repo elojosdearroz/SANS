@@ -110,6 +110,15 @@
             </Setter>
         </Style>
 
+        <Style x:Key="ModernComboBox" TargetType="ComboBox">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="BorderBrush" Value="#e0e0e0"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="Height" Value="32"/>
+            <Setter Property="Padding" Value="8,4"/>
+        </Style>
+
         <Storyboard x:Key="FadeInAnimation">
             <DoubleAnimation Storyboard.TargetProperty="Opacity" 
                              From="0" To="1" Duration="0:0:0.5"/>
@@ -129,6 +138,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
@@ -146,8 +156,41 @@
                            Foreground="#2c3e50"/>
             </Grid>
 
-            <!-- Botones -->
+            <!-- ComboBoxes -->
             <Grid Grid.Row="1" Margin="0,0,0,20">
+                <Border Background="White" BorderBrush="#e0e0e0" BorderThickness="1" CornerRadius="8" Padding="20,15">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="200"/>
+                            <ColumnDefinition Width="30"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="200"/>
+                            <ColumnDefinition Width="30"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="200"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Grid.Column="0" Text="Carrera:" FontSize="12" FontWeight="SemiBold" 
+                                   Foreground="#2c3e50" VerticalAlignment="Center"/>
+                        <ComboBox Grid.Column="1" x:Name="cmbCarrera" Style="{StaticResource ModernComboBox}" 
+                                  Margin="10,0,0,0" SelectionChanged="cmbCarrera_SelectionChanged"/>
+
+                        <TextBlock Grid.Column="3" Text="Plan de Estudio:" FontSize="12" FontWeight="SemiBold" 
+                                   Foreground="#2c3e50" VerticalAlignment="Center"/>
+                        <ComboBox Grid.Column="4" x:Name="cmbPlanEstudio" Style="{StaticResource ModernComboBox}" 
+                                  Margin="10,0,0,0"/>
+
+                        <TextBlock Grid.Column="6" Text="Gestión:" FontSize="12" FontWeight="SemiBold" 
+                                   Foreground="#2c3e50" VerticalAlignment="Center"/>
+                        <ComboBox Grid.Column="7" x:Name="cmbGestion" Style="{StaticResource ModernComboBox}" 
+                                  Margin="10,0,0,0" SelectionChanged="cmbGestion_SelectionChanged"/>
+                    </Grid>
+                </Border>
+            </Grid>
+
+            <!-- Botones -->
+            <Grid Grid.Row="2" Margin="0,0,0,20">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                     <Button x:Name="btnGenerarReporte" Content="GENERAR REPORTE"
                             Style="{StaticResource ModernButton}" Width="150" Margin="0,0,10,0"/>
@@ -161,7 +204,7 @@
             </Grid>
 
             <!-- Contenedor del Reporte -->
-            <Border Grid.Row="2" Style="{StaticResource ReportContainer}" Margin="0,0,0,20">
+            <Border Grid.Row="3" Style="{StaticResource ReportContainer}" Margin="0,0,0,20">
                 <Grid Margin="20">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
@@ -209,9 +252,9 @@
                                     HorizontalAlignment="Center"
                                     VerticalAlignment="Center"
                                     Visibility="Visible">
-                            <TextBlock Text="📊" FontSize="48" Foreground="#bdc3c7" Margin="0,0,0,10"/>
-                            <TextBlock Text="No hay datos para mostrar" FontSize="16" FontWeight="SemiBold" Foreground="#7f8c8d"/>
-                            <TextBlock Text="Haga clic en 'Generar Reporte' para cargar los datos" FontSize="12" Foreground="#95a5a6" Margin="0,5,0,0"/>
+                            <TextBlock Text="📊" FontSize="48" Foreground="#bdc3c7" Margin="0,0,0,10" HorizontalAlignment="Center"/>
+                            <TextBlock Text="No hay datos para mostrar" FontSize="16" FontWeight="SemiBold" Foreground="#7f8c8d" HorizontalAlignment="Center"/>
+                            <TextBlock Text="Haga clic en 'Generar Reporte' para cargar los datos" FontSize="12" Foreground="#95a5a6" Margin="0,5,0,0" HorizontalAlignment="Center"/>
                         </StackPanel>
 
                         <!-- Panel Cargando -->
@@ -228,7 +271,7 @@
             </Border>
 
             <!-- Pie de página -->
-            <Grid Grid.Row="3">
+            <Grid Grid.Row="4">
                 <Border Background="White" BorderBrush="#e0e0e0" BorderThickness="1" CornerRadius="4" Padding="15,10">
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                         <TextBlock Text="Sistema Universitario" FontSize="10" Foreground="#7f8c8d"/>

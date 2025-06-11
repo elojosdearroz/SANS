@@ -49,10 +49,11 @@
     <Compile Include="Clases\Persona_Clases\Estudiante.cs" />
     <Compile Include="RellenarFromsInscripcion.cs" />
     <Compile Include="Clases\Materia.cs" />
-    <Compile Include="Clases\MateriasInscritas.cs" />
+    <Compile Include="Clases\Carrera.cs" />
     <Compile Include="Clases\Nota.cs" />
     <Compile Include="Clases\Persona.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RellenarFromsReportes.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Capa_Datos\Capa_Datos.csproj">

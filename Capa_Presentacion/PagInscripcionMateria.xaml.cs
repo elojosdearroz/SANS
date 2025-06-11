@@ -41,9 +41,8 @@ namespace Capa_Presentacion
             idCarrera= est.IdCarrera;
 
             List<Gestion> gestiones = RellenarFromsInscripcion.ObtenerGestiones();
-            // Cargar en el ComboBox
             cmbPlanEstudio.ItemsSource = gestiones;
-            cmbPlanEstudio.DisplayMemberPath = "Descripcion"; // Lo que se muestra
+            cmbPlanEstudio.DisplayMemberPath = "Descripcion";
             cmbPlanEstudio.SelectedValuePath = "Id";
         }
 
