@@ -1,0 +1,267 @@
+﻿<Page x:Class="Capa_Presentacion.PagReporteAsistencia"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Capa_Presentacion"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      xmlns:syncfusion="clr-namespace:BoldReports.UI.Xaml;assembly=BoldReports.Wpf"      
+      Title="Sistema Universitario - Reporte Asistencia"
+      Background="Transparent">
+
+    <Page.Resources>
+        <LinearGradientBrush x:Key="BackgroundGradient" StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="#f8f9fa" Offset="0"/>
+            <GradientStop Color="#e9ecef" Offset="1"/>
+        </LinearGradientBrush>
+
+        <Style x:Key="ModernButton" TargetType="Button">
+            <Setter Property="Background">
+                <Setter.Value>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="#8e44ad" Offset="0"/>
+                        <GradientStop Color="#9b59b6" Offset="0.5"/>
+                        <GradientStop Color="#663399" Offset="1"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Height" Value="36"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" 
+                                CornerRadius="18" 
+                                BorderThickness="0">
+                            <ContentPresenter HorizontalAlignment="Center" 
+                                              VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background">
+                                    <Setter.Value>
+                                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                            <GradientStop Color="#9b59b6" Offset="0"/>
+                                            <GradientStop Color="#8e44ad" Offset="0.5"/>
+                                            <GradientStop Color="#7d3c98" Offset="1"/>
+                                        </LinearGradientBrush>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="CerrarButton" TargetType="Button" BasedOn="{StaticResource ModernButton}">
+            <Setter Property="Background">
+                <Setter.Value>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="#a83279" Offset="0"/>
+                        <GradientStop Color="#d84cb8" Offset="0.5"/>
+                        <GradientStop Color="#8e2c6e" Offset="1"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" 
+                                CornerRadius="18" 
+                                BorderThickness="0">
+                            <ContentPresenter HorizontalAlignment="Center" 
+                                              VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background">
+                                    <Setter.Value>
+                                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                            <GradientStop Color="#d84cb8" Offset="0"/>
+                                            <GradientStop Color="#FFC847AA" Offset="0.5"/>
+                                            <GradientStop Color="#FFB7419B" Offset="1"/>
+                                        </LinearGradientBrush>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="ReportContainer" TargetType="Border">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="BorderBrush" Value="#e0e0e0"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="CornerRadius" Value="8"/>
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect Color="#e0e0e0" 
+                                      BlurRadius="10" 
+                                      ShadowDepth="3" 
+                                      Opacity="0.3"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="ModernComboBox" TargetType="ComboBox">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="BorderBrush" Value="#e0e0e0"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="Height" Value="32"/>
+            <Setter Property="Padding" Value="8,4"/>
+        </Style>
+
+        <Storyboard x:Key="FadeInAnimation">
+            <DoubleAnimation Storyboard.TargetProperty="Opacity" 
+                             From="0" To="1" Duration="0:0:0.5"/>
+        </Storyboard>
+    </Page.Resources>
+
+
+
+    <Page.Triggers>
+        <EventTrigger RoutedEvent="Loaded">
+            <BeginStoryboard Storyboard="{StaticResource FadeInAnimation}"/>
+        </EventTrigger>
+    </Page.Triggers>
+
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+        <Grid Background="{StaticResource BackgroundGradient}" MinWidth="900" MinHeight="600">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Grid.Margin>
+                <Thickness>20</Thickness>
+            </Grid.Margin>
+
+            <!-- Título -->
+            <Grid Grid.Row="0" Margin="0,0,0,20">
+                <TextBlock Text="Reporte del Sistema" 
+                           FontSize="22" 
+                           FontWeight="Bold" 
+                           HorizontalAlignment="Center"
+                           Foreground="#2c3e50"/>
+            </Grid>
+
+            <!-- ComboBoxes -->
+            <Grid Grid.Row="1" Margin="0,0,0,20">
+                <Border Background="White" BorderBrush="#e0e0e0" BorderThickness="1" CornerRadius="8" Padding="20,15">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="200"/>
+                            <ColumnDefinition Width="30"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="200"/>
+                            <ColumnDefinition Width="30"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="200"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Grid.Column="0" Text="Carreras:" FontSize="12" FontWeight="SemiBold" 
+                                   Foreground="#2c3e50" VerticalAlignment="Center"/>
+                        <ComboBox Grid.Column="1" x:Name="cmbCarreras" Style="{StaticResource ModernComboBox}" 
+                                  Margin="10,0,0,0"/>
+
+                        <TextBlock Grid.Column="3" Text="Materias:" FontSize="12" FontWeight="SemiBold" 
+                                   Foreground="#2c3e50" VerticalAlignment="Center"/>
+                        <ComboBox Grid.Column="4" x:Name="cmbMaterias" Style="{StaticResource ModernComboBox}" 
+                                  Margin="10,0,0,0"/>
+
+                    </Grid>
+                </Border>
+            </Grid>
+
+            <!-- Botones -->
+            <Grid Grid.Row="2" Margin="0,0,0,20">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button x:Name="btnGenerarReporte" Content="GENERAR REPORTE"
+                            Style="{StaticResource ModernButton}" Width="150" Margin="0,0,10,0" />
+
+                    <!--<Button x:Name="btnCerrarReporte" Content="CERRAR REPORTE"
+                            Style="{StaticResource CerrarButton}" Width="150"/> -->
+                </StackPanel>
+            </Grid>
+
+            <!-- Contenedor del Reporte -->
+            <Border Grid.Row="3" Style="{StaticResource ReportContainer}" Margin="0,0,0,20">
+                <Grid Margin="20">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <!-- Info -->
+                    <StackPanel Grid.Row="0" Margin="0,0,0,15">
+                        <TextBlock Text="Información del Reporte" FontSize="16" FontWeight="Bold"
+                                   Foreground="#2c3e50" Margin="0,0,0,10"/>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="200"/>
+                                <ColumnDefinition Width="50"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                        </Grid>
+                    </StackPanel>
+
+                    <Border Grid.Row="1" Height="1" Background="#e0e0e0" Margin="0,0,0,15"/>
+
+                    <!-- ReportViewer y Paneles -->
+                    <Grid Grid.Row="2">
+                        <syncfusion:ReportViewer Name="reportViewer" 
+                                                 Width="auto"/>
+
+
+                        <!-- Panel Sin Datos -->
+                        <StackPanel x:Name="panelSinDatos"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Visibility="Visible">
+                            <TextBlock Text="📊" FontSize="48" Foreground="#bdc3c7" Margin="0,0,0,10" HorizontalAlignment="Center"/>
+                            <TextBlock Text="No hay datos para mostrar" FontSize="16" FontWeight="SemiBold" Foreground="#7f8c8d" HorizontalAlignment="Center"/>
+                            <TextBlock Text="Haga clic en 'Generar Reporte' para cargar los datos" FontSize="12" Foreground="#95a5a6" Margin="0,5,0,0" HorizontalAlignment="Center"/>
+                        </StackPanel>
+
+                        <!-- Panel Cargando -->
+                        <StackPanel x:Name="panelCargando"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Visibility="Collapsed">
+                            <TextBlock Text="⏳" FontSize="48" Foreground="#8e44ad" Margin="0,0,0,10"/>
+                            <TextBlock Text="Generando reporte..." FontSize="16" FontWeight="SemiBold" Foreground="#8e44ad"/>
+                            <TextBlock Text="Por favor espere" FontSize="12" Foreground="#9b59b6" Margin="0,5,0,0"/>
+                        </StackPanel>
+                    </Grid>
+                </Grid>
+            </Border>
+
+            <!-- Pie de página -->
+            <Grid Grid.Row="4">
+                <Border Background="White" BorderBrush="#e0e0e0" BorderThickness="1" CornerRadius="4" Padding="15,10">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <TextBlock Text="Sistema Universitario" FontSize="10" Foreground="#7f8c8d"/>
+                        <TextBlock Text=" | " FontSize="10" Foreground="#bdc3c7" Margin="5,0"/>
+                        <TextBlock Text="Reporte generado con BoldReports" FontSize="10" Foreground="#7f8c8d"/>
+                    </StackPanel>
+                </Border>
+            </Grid>
+        </Grid>
+    </ScrollViewer>
+</Page>

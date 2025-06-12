@@ -128,6 +128,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="PagReporteAsistencia.xaml.cs">
+      <DependentUpon>PagReporteAsistencia.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PagReporteNotas.xaml.cs">
+      <DependentUpon>PagReporteNotas.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Resources\DataSet1.cs">
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </Compile>
@@ -157,6 +163,14 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="PagInscripcionMateria.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PagReporteAsistencia.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PagReporteNotas.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -102,5 +102,15 @@ namespace Capa_Presentacion
         {
             MainFrame.Navigate(new PagReportes());
         }
+
+        private void ReporteAsistencia_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new PagReporteAsistencia());
+        }
+
+        private void ReporteNotas_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new PagReporteNotas());
+        }
     }
 }
