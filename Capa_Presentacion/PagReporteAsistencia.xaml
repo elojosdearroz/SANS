@@ -175,7 +175,7 @@
                         <TextBlock Grid.Column="0" Text="Carreras:" FontSize="12" FontWeight="SemiBold" 
                                    Foreground="#2c3e50" VerticalAlignment="Center"/>
                         <ComboBox Grid.Column="1" x:Name="cmbCarreras" Style="{StaticResource ModernComboBox}" 
-                                  Margin="10,0,0,0"/>
+                                  Margin="10,4,30,-4" Grid.ColumnSpan="2" SelectionChanged="cmbCarreras_SelectionChanged"/>
 
                         <TextBlock Grid.Column="3" Text="Materias:" FontSize="12" FontWeight="SemiBold" 
                                    Foreground="#2c3e50" VerticalAlignment="Center"/>
@@ -190,7 +190,7 @@
             <Grid Grid.Row="2" Margin="0,0,0,20">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                     <Button x:Name="btnGenerarReporte" Content="GENERAR REPORTE"
-                            Style="{StaticResource ModernButton}" Width="150" Margin="0,0,10,0" />
+                            Style="{StaticResource ModernButton}" Width="150" Margin="0,0,10,0" Click="btnGenerarReporte_Click" />
 
                     <!--<Button x:Name="btnCerrarReporte" Content="CERRAR REPORTE"
                             Style="{StaticResource CerrarButton}" Width="150"/> -->

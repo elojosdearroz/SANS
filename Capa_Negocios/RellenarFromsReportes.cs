@@ -67,5 +67,49 @@ namespace Capa_Negocios
             }
             return planes;
         }
+
+        //pa_ObtenerEdicionesPorCarrera
+        public static List<EdicionMateria> ObtenerEdicionesPorCarrera(int idCarrera)
+        { 
+            List<EdicionMateria> ediciones = new List<EdicionMateria>();
+            SqlParameter[] parametros = new SqlParameter[]
+            {
+                new SqlParameter("@idCarrera", idCarrera)
+            };
+            DataTable tabla = gDatos.Consultar("pa_ObtenerEdicionesPorCarrera", parametros);
+            foreach (DataRow fila in tabla.Rows)
+            {
+                EdicionMateria edicion = new EdicionMateria
+                {
+                    Id = Convert.ToInt32(fila["id_Edicion"]),
+                    NombreMateria = fila["nombre_materia"].ToString(),
+                    Grupo = fila["grupo"].ToString(),
+                    Anio = Convert.ToInt32(fila["anio"])
+                };
+                ediciones.Add(edicion);
+            }
+            return ediciones;
+        }
+        //pa_GestionesCursadasPorEstudiante
+        public static List<Gestion> GestionesCursadasPorEstudiante(int idEstudiante)
+        { 
+            List<Gestion> gestiones = new List<Gestion>();
+            SqlParameter[] parametros = new SqlParameter[]
+            {
+                new SqlParameter("@idEstudiante", idEstudiante)
+            };
+            DataTable tabla = gDatos.Consultar("pa_GestionesCursadasPorEstudiante", parametros);
+            foreach (DataRow fila in tabla.Rows)
+            {
+                Gestion g = new Gestion
+                {
+                    Id = Convert.ToInt32(fila["id_Gestion"]),
+                    Semestre = Convert.ToInt32(fila["semestre"]),
+                    Anio = Convert.ToInt32(fila["anio"])
+                };
+                gestiones.Add(g);
+            }
+            return gestiones;
+        }
     }
 }

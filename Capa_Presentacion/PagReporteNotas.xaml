@@ -198,8 +198,8 @@
                                   Margin="10,0,0,0"
                                   ToolTip="Seleccione una materia"/>
 
-                        <Button Grid.Column="6" x:Name="btnBuscar" 
-                                Style="{StaticResource SearchButton}"/>
+                        <Button Grid.Column="5" x:Name="btnBuscar" 
+                                Style="{StaticResource SearchButton}" Grid.ColumnSpan="2" Height="36" Margin="20,0,0,0" VerticalAlignment="Top" Click="btnBuscar_Click"/>
                     </Grid>
                 </Border>
             </Grid>
@@ -207,11 +207,11 @@
             <!-- Botones -->
             <Grid Grid.Row="2" Margin="0,0,0,20">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                    <Button x:Name="btnGenerarReporte" Content="GENERAR REPORTE"
-                            Style="{StaticResource ModernButton}" Width="150" Margin="0,0,10,0" />
+                    <Button x:Name="btnGenerarReporte" Content="GENERAR NOTAS"
+                            Style="{StaticResource ModernButton}" Width="150" Margin="0,0,10,0" Click="btnGenerarReporte_Click" />
 
-                    <!--<Button x:Name="btnCerrarReporte" Content="CERRAR REPORTE"
-                            Style="{StaticResource CerrarButton}" Width="150"/> -->
+                    <Button x:Name="btnNotasAprobadas" Content="GENERAR APROBADAS"
+                            Style="{StaticResource CerrarButton}" Width="190" Click="btnNotasAprobadas_Click"/> 
                 </StackPanel>
             </Grid>
 
