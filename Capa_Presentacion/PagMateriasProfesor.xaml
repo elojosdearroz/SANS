@@ -1,0 +1,176 @@
+﻿<Page x:Class="Capa_Presentacion.PagMateriasProfesor"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Capa_Presentacion"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Sistema Universitario - Clases por Profesor"
+      Background="Transparent">
+
+    <Page.Resources>
+        <LinearGradientBrush x:Key="BackgroundGradient" StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="#ffffff" Offset="0"/>
+            <GradientStop Color="#f8f9fa" Offset="1"/>
+        </LinearGradientBrush>
+
+        <Style x:Key="ModernButton" TargetType="Button">
+            <Setter Property="Background">
+                <Setter.Value>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="#8e44ad" Offset="0"/>
+                        <GradientStop Color="#9b59b6" Offset="1"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="11"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Height" Value="28"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" 
+                                CornerRadius="14" 
+                                BorderThickness="0">
+                            <ContentPresenter HorizontalAlignment="Center" 
+                                              VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background">
+                                    <Setter.Value>
+                                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                            <GradientStop Color="#9b59b6" Offset="0"/>
+                                            <GradientStop Color="#7d3c98" Offset="1"/>
+                                        </LinearGradientBrush>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="SearchButton" TargetType="Button">
+            <Setter Property="Background">
+                <Setter.Value>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="#8e44ad" Offset="0"/>
+                        <GradientStop Color="#9b59b6" Offset="1"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Width" Value="30"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" 
+                                CornerRadius="15" 
+                                BorderThickness="0">
+                            <TextBlock Text="🔍" 
+                                       FontSize="12" 
+                                       HorizontalAlignment="Center" 
+                                       VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background">
+                                    <Setter.Value>
+                                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                            <GradientStop Color="#9b59b6" Offset="0"/>
+                                            <GradientStop Color="#7d3c98" Offset="1"/>
+                                        </LinearGradientBrush>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="ModernDataGrid" TargetType="DataGrid">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="BorderBrush" Value="#e0e0e0"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="GridLinesVisibility" Value="Horizontal"/>
+            <Setter Property="HorizontalGridLinesBrush" Value="#f0f0f0"/>
+            <Setter Property="RowBackground" Value="White"/>
+            <Setter Property="AlternatingRowBackground" Value="#f8f9fa"/>
+            <Setter Property="HeadersVisibility" Value="Column"/>
+            <Setter Property="AutoGenerateColumns" Value="False"/>
+            <Setter Property="CanUserAddRows" Value="False"/>
+            <Setter Property="CanUserDeleteRows" Value="False"/>
+            <Setter Property="SelectionMode" Value="Single"/>
+            <Setter Property="FontSize" Value="10"/>
+            <Setter Property="ColumnHeaderHeight" Value="30"/>
+            <Setter Property="MinRowHeight" Value="22"/>
+        </Style>
+
+        <Style x:Key="InputStyle" TargetType="Control">
+            <Setter Property="FontSize" Value="11"/>
+            <Setter Property="Height" Value="28"/>
+        </Style>
+    </Page.Resources>
+
+    <Grid Background="{StaticResource BackgroundGradient}" Margin="15">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Text="Clases Asignadas" 
+                   FontSize="18" FontWeight="Bold" 
+                   HorizontalAlignment="Center" Foreground="#2c3e50"
+                   Margin="0,0,0,10"/>
+
+
+
+
+        <Grid Grid.Row="2" Margin="0,0,0,10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="90"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Nombre Profesor -->
+            <StackPanel Grid.Column="0">
+                <TextBlock Text="Nombre del Profesor:" FontSize="10" FontWeight="SemiBold" 
+                           Foreground="#2c3e50" Margin="0,0,0,3"/>
+                <Border Background="White" BorderBrush="#e0e0e0" BorderThickness="1" CornerRadius="3">
+                    <TextBox x:Name="txtNombreProfesor" Background="Transparent" BorderThickness="0"
+                             Style="{StaticResource InputStyle}" Padding="6,0" VerticalContentAlignment="Center" 
+                             Foreground="#2c3e50" IsReadOnly="True"/>
+                </Border>
+            </StackPanel>
+        </Grid>
+
+        <!-- DataGrid -->
+        <Grid Grid.Row="3" Margin="0,0,0,10">
+            <StackPanel>
+                <TextBlock Text="Clases Asignadas" FontSize="12" FontWeight="Bold" 
+                           Foreground="#2c3e50" Margin="0,0,0,5"/>
+                <Border Background="White" BorderBrush="#e0e0e0" BorderThickness="1" CornerRadius="3">
+                    <DataGrid x:Name="dgClases" Style="{StaticResource ModernDataGrid}" Height="200"/>
+                </Border>
+            </StackPanel>
+        </Grid>
+
+    </Grid>
+</Page>

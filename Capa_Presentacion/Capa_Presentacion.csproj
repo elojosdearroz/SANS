@@ -128,6 +128,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ConsultaDeNotasProfesores.xaml.cs">
+      <DependentUpon>ConsultaDeNotasProfesores.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PagMateriasProfesor.xaml.cs">
+      <DependentUpon>PagMateriasProfesor.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PagReporteAsistencia.xaml.cs">
       <DependentUpon>PagReporteAsistencia.xaml</DependentUpon>
     </Compile>
@@ -158,6 +164,13 @@
       <DependentUpon>DataSet4.xsd</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="VerNotasEstudiante.xaml.cs">
+      <DependentUpon>VerNotasEstudiante.xaml</DependentUpon>
+    </Compile>
+    <Page Include="ConsultaDeNotasProfesores.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Login.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -181,6 +194,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="PagMateriasProfesor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PagReporteAsistencia.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -190,6 +207,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="PagReportes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VerNotasEstudiante.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
