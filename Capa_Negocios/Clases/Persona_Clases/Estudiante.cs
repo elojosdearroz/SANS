@@ -10,6 +10,5 @@ namespace Capa_Negocios.Clases
     {
         public int IdCarrera { get; set; }
         public string NombreCarrera { get; set; }
-        public int IdPlanEstudio { get; set; }
     }
 }

@@ -69,8 +69,8 @@ namespace Capa_Presentacion
 
             if (result == MessageBoxResult.Yes)
             {
-                // Aquí puedes navegar de vuelta al login si tienes uno, o cerrar la app
-                Application.Current.Shutdown();
+                new Login().Show();
+                this.Close(); // Cierra la ventana principal
             }
         }
 
