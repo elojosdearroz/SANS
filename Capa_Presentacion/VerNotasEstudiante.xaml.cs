@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Capa_Negocios;
+using Capa_Negocios.Clases;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +22,23 @@ namespace Capa_Presentacion
     /// </summary>
     public partial class VerNotasEstudiante : Page
     {
+        private Usuario usuario;
         public VerNotasEstudiante()
         {
             InitializeComponent();
+            usuario = Capa_Negocios.Login.Usuarioactual;
+            Estudiante estudiante = usuario as Estudiante;
+
+            txtNombreEstudiante.Text = estudiante.Nombre + " " + estudiante.Apellido;
+            txtNombreCarrera.Text = estudiante.NombreCarrera;
+
+            cmbGestion.ItemsSource = RellenarFromsReportes.GestionesCursadasPorEstudiante(estudiante.Id);
+            cmbGestion.DisplayMemberPath = "Descripcion";
+            cmbGestion.SelectedValuePath = "Id";
+        }
+        private void cmbGestion_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            dgNotas.ItemsSource = RellenarFromsEstudiante.ObtenerNotasPorEstudianteYGestion(usuario.Id, (int)cmbGestion.SelectedValue);
         }
     }
 }

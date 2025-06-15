@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Capa_Negocios;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,13 @@ namespace Capa_Presentacion
     /// </summary>
     public partial class PagMateriasProfesor : Page
     {
+        private Usuario usuario;
         public PagMateriasProfesor()
         {
             InitializeComponent();
+            usuario = Capa_Negocios.Login.Usuarioactual;
+
+            txtNombreProfesor.Text = usuario.Nombre + " " + usuario.Apellido;
         }
     }
 }

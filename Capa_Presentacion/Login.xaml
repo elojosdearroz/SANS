@@ -201,7 +201,7 @@
                            Margin="0,0,0,40"/>
 
                 <!-- Usuario -->
-                <TextBlock Text="Nombre de Usuario" 
+                <TextBlock Text="Clave de Usuario" 
                            FontSize="14" 
                            FontWeight="SemiBold"
                            Foreground="#2c3e50"

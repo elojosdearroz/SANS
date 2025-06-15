@@ -50,6 +50,7 @@
     <Compile Include="Clases\Persona_Clases\Docente.cs" />
     <Compile Include="Clases\Persona_Clases\Estudiante.cs" />
     <Compile Include="Login.cs" />
+    <Compile Include="RellenarFromsEstudiante.cs" />
     <Compile Include="RellenarFromsInscripcion.cs" />
     <Compile Include="Clases\Materia.cs" />
     <Compile Include="Clases\Carrera.cs" />

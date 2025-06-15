@@ -105,6 +105,18 @@
         <Storyboard x:Key="FadeInAnimation">
             <DoubleAnimation Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:0.8"/>
         </Storyboard>
+
+        <Storyboard x:Key="ExpandCardUsuario">
+            <DoubleAnimation Storyboard.TargetName="CardUsuario"
+                     Storyboard.TargetProperty="Opacity"
+                     To="1" Duration="0:0:0.3" />
+        </Storyboard>
+
+        <Storyboard x:Key="CollapseCardUsuario">
+            <DoubleAnimation Storyboard.TargetName="CardUsuario"
+                     Storyboard.TargetProperty="Opacity"
+                     To="0" Duration="0:0:0.2" />
+        </Storyboard>
     </Window.Resources>
 
     <Window.Triggers>
@@ -129,19 +141,49 @@
                     <Grid.RowDefinitions>
                         <RowDefinition Height="70"/>
                         <RowDefinition Height="*"/>
-                        <RowDefinition Height="60"/>
+                        <RowDefinition Height="233"/>
                     </Grid.RowDefinitions>
 
                     <Button x:Name="btnToggleMenu" Grid.Row="0" Style="{StaticResource MenuToggleButton}" Content="☰" HorizontalAlignment="Center" VerticalAlignment="Center" Click="ToggleMenu_Click"/>
 
                     <StackPanel x:Name="SidebarContent" Grid.Row="1" Margin="0,20" Opacity="0">
                         <!-- Sección de Usuario -->
-                        <Border  Opacity="0.2" CornerRadius="10" Margin="15,0,15,20" Padding="15">
+                        
+
+                        <TextBlock Text="UNIVALLE" Foreground="White" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,0,0,30"/>
+
+                        <!-- Sección de Administrativos -->
+                        <Button x:Name="btnInscribirMaterias" Content="Inscribir Materias" Style="{StaticResource SidebarButton}" Click="InscribirMaterias_Click"/>
+                        <Button x:Name="btnImprimirReporte" Content="Reporte Materias" Style="{StaticResource SidebarButton}" Click="ImprimirRepote_Click"/>
+                        <Button x:Name="btnReporteAsistencia" Content="Reporte Asistencias" Style="{StaticResource SidebarButton}" Click="ReporteAsistencia_Click"/>
+                        <Button x:Name="btnReporteNotas" Content="Reporte Notas" Style="{StaticResource SidebarButton}" Click="ReporteNotas_Click"/>
+
+                        <!-- Sección de Docentes -->
+                        <Button x:Name="btnConsultarNotas" Content="Reporte Notas" Style="{StaticResource SidebarButton}" Click="ConsultarNotas_Click"/>
+                        <Button x:Name="btnConsultarMaterias" Content="Ver Clases" Style="{StaticResource SidebarButton}" Click="ConsultarMaterias_Click"/>
+
+                        <!-- Sección de Alumnos -->
+                        <Button x:Name="btnVerNotas" Content="Ver Notas" Style="{StaticResource SidebarButton}" Click="VerNotas_Click"/>
+
+                        <Separator Background="White" Opacity="0.3" Margin="20,10"/>
+
+
+                    </StackPanel>
+
+
+                    <StackPanel Grid.Row="2" Margin="0,0">
+                        <!-- Datos del usuario -->
+                        <Border x:Name="CardUsuario" Background="#9b59b6" CornerRadius="15" Margin="15,0,15,15" Padding="15" Opacity="0">
+                            <Border.Effect>
+                                <DropShadowEffect Color="Black" BlurRadius="8" ShadowDepth="2" Opacity="0.3"/>
+                                </Border.Effect>
                             <StackPanel>
+                                <!-- Icono de usuario -->
                                 <Border Width="50" Height="50" Background="White" CornerRadius="25" HorizontalAlignment="Center" Margin="0,0,0,10">
                                     <TextBlock Text="👤" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#663399"/>
                                 </Border>
 
+                                <!-- Nombre del usuario -->
                                 <TextBlock x:Name="txtBienvenido" Text="Bienvenido:" Foreground="White" FontSize="12" FontWeight="SemiBold" HorizontalAlignment="Center" Margin="0,0,0,2"/>
                                 <TextBlock x:Name="txtNombreUsuario" Text="[Nombre Usuario]" Foreground="White" FontSize="14" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,0,0,8"/>
 
@@ -151,19 +193,11 @@
                             </StackPanel>
                         </Border>
 
-                        <TextBlock Text="UNIVALLE" Foreground="White" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,0,0,30"/>
-
-                        <Button x:Name="btnInscribirMaterias" Content="Inscribir Materias" Style="{StaticResource SidebarButton}" Click="InscribirMaterias_Click"/>
-                        <Button x:Name="btnImprimirReporte" Content="Reporte Materias" Style="{StaticResource SidebarButton}" Click="ImprimirRepote_Click"/>
-                        <Button x:Name="btnReporteAsistencia" Content="Reporte Asistencias" Style="{StaticResource SidebarButton}" Click="ReporteAsistencia_Click"/>
-                        <Button x:Name="btnReporteNotas" Content="Reporte Notas" Style="{StaticResource SidebarButton}" Click="ReporteNotas_Click"/>
-
-                        <Separator Background="White" Opacity="0.3" Margin="20,10"/>
+                        <!-- Botón cerrar sesión -->
+                        <Border Background="Black" Opacity="0.2" CornerRadius="0,0,0,15" Margin="0,0,0,5">
+                            <Button x:Name="btnCerrarSesion" Content="❌" Style="{StaticResource MenuToggleButton}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" ToolTip="Cerrar Sesión" Click="CerrarSesion_Click"/>
+                        </Border>
                     </StackPanel>
-
-                    <Border Grid.Row="2" Background="Black" Opacity="0.2" CornerRadius="0,0,0,15">
-                        <Button x:Name="btnCerrarSesion" Content="❌" Style="{StaticResource MenuToggleButton}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" ToolTip="Cerrar Sesión" Click="CerrarSesion_Click"/>
-                    </Border>
                 </Grid>
             </Border>
 

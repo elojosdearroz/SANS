@@ -1,20 +1,71 @@
-﻿using System;
+﻿using Capa_Datos;
+using Capa_Negocios;
+using Capa_Negocios.Clases;
+using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Animation;
-using Capa_Datos;
-using Capa_Negocios;
 
 namespace Capa_Presentacion
 {
     public partial class MainWindow : Window
     {
         private bool isSidebarExpanded = false;
-
+        private Usuario usuario;
         public MainWindow()
         {
             InitializeComponent();
             InitializeSidebar();
+
+            CargarUsuario();
+            ConfigurarMenuSegunUsuario();
+        }
+
+        //Carga los datos del usuario actual en la tarjeta de usuario
+        private void CargarUsuario()
+        {
+            usuario = Capa_Negocios.Login.Usuarioactual;
+            txtNombreUsuario.Text = usuario.Nombre + " "+ usuario.Apellido; 
+
+            if (usuario is Estudiante)
+                txtRolUsuario.Text = "Estudiante";
+            else if (usuario is Docente)
+                txtRolUsuario.Text = "Docente";
+            else if (usuario is Administrativo)
+                txtRolUsuario.Text = "Administrativo";
+            else
+                txtRolUsuario.Text = "Rol desconocido";
+        }
+
+        private void ConfigurarMenuSegunUsuario()
+        {
+            btnInscribirMaterias.Visibility = Visibility.Collapsed;
+            btnImprimirReporte.Visibility = Visibility.Collapsed;
+            btnReporteAsistencia.Visibility = Visibility.Collapsed;
+            btnReporteNotas.Visibility = Visibility.Collapsed;
+            btnConsultarNotas.Visibility = Visibility.Collapsed;
+            btnConsultarMaterias.Visibility = Visibility.Collapsed;
+            btnVerNotas.Visibility = Visibility.Collapsed;
+
+            if (usuario is Estudiante)
+            {
+                btnVerNotas.Visibility = Visibility.Visible;
+                // El estudiante quizá no vea reportes
+            }
+            else if (usuario is Docente)
+            {
+                btnConsultarMaterias.Visibility = Visibility.Visible;
+                btnConsultarNotas.Visibility = Visibility.Visible;
+                // Docente puede ver reportes
+            }
+            else if (usuario is Administrativo)
+            {
+                // Administrativo puede ver todo, por ejemplo
+                btnInscribirMaterias.Visibility = Visibility.Visible;
+                btnImprimirReporte.Visibility = Visibility.Visible;
+                btnReporteAsistencia.Visibility = Visibility.Visible;
+                btnReporteNotas.Visibility = Visibility.Visible;
+            }
         }
 
         // Inicializa la barra lateral colapsada
@@ -42,15 +93,20 @@ namespace Capa_Presentacion
         // Expande el sidebar con animación
         private void ExpandSidebar()
         {
-            Storyboard expandStoryboard = (Storyboard)FindResource("ExpandSidebar");
-            expandStoryboard.Begin();
+            Storyboard expandSidebar = (Storyboard)FindResource("ExpandSidebar");
+            expandSidebar.Begin();
+
+            Storyboard expandCard = (Storyboard)FindResource("ExpandCardUsuario");
+            expandCard.Begin();
         }
 
-        // Colapsa el sidebar con animación
         private void CollapseSidebar()
         {
-            Storyboard collapseStoryboard = (Storyboard)FindResource("CollapseSidebar");
-            collapseStoryboard.Begin();
+            Storyboard collapseSidebar = (Storyboard)FindResource("CollapseSidebar");
+            collapseSidebar.Begin();
+
+            Storyboard collapseCard = (Storyboard)FindResource("CollapseCardUsuario");
+            collapseCard.Begin();
         }
 
         // Navega a la página de inscripción de materias
@@ -102,16 +158,43 @@ namespace Capa_Presentacion
         private void ImprimirRepote_Click(object sender, RoutedEventArgs e)
         {
             MainFrame.Navigate(new PagReportes());
+            CollapseSidebar();
+            isSidebarExpanded = !isSidebarExpanded;
         }
 
         private void ReporteAsistencia_Click(object sender, RoutedEventArgs e)
         {
             MainFrame.Navigate(new PagReporteAsistencia());
+            CollapseSidebar();
+            isSidebarExpanded = !isSidebarExpanded;
         }
 
         private void ReporteNotas_Click(object sender, RoutedEventArgs e)
         {
             MainFrame.Navigate(new PagReporteNotas());
+            CollapseSidebar();
+            isSidebarExpanded = !isSidebarExpanded;
+        }
+
+        private void ConsultarNotas_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new ConsultaDeNotasProfesores());
+            CollapseSidebar();
+            isSidebarExpanded = !isSidebarExpanded;
+        }
+
+        private void ConsultarMaterias_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new PagMateriasProfesor());
+            CollapseSidebar();
+            isSidebarExpanded = !isSidebarExpanded;
+        }
+
+        private void VerNotas_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new VerNotasEstudiante());
+            CollapseSidebar();
+            isSidebarExpanded = !isSidebarExpanded;
         }
     }
 }
