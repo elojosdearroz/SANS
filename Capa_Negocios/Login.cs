@@ -12,7 +12,36 @@ namespace Capa_Negocios
 {
     public static class Login
     {
-        public static Persona ObtenerUsuarioPorCredenciales(string ci, string contrasena)
+        #region Logica Singleton
+        private static Usuario usuarioactual;
+
+        public static Usuario Usuarioactual
+        {
+            get { return usuarioactual; }
+        }
+        public static void IniciarSesion(Usuario usuario)
+        {
+            if (Usuarioactual == null)
+            {
+                usuarioactual = usuario;
+            }
+            else
+            {
+                throw new InvalidOperationException("Ya hay un usuario en sesión.");
+            }
+        }
+
+        public static void CerrarSesion()
+        {
+            usuarioactual = null;
+        }
+
+        public static bool HaySesion()
+        {
+            return usuarioactual != null;
+        }
+        #endregion
+        public static Usuario ObtenerUsuarioPorCredenciales(string ci, string contrasena)
         {
             SqlParameter[] parametros = new SqlParameter[]
             {

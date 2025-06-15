@@ -6,7 +6,7 @@ using System.Data.SqlClient;
 
 namespace Capa_Negocios.Clases
 {
-    public class Estudiante : Persona
+    public class Estudiante : Usuario
     {
         public int IdCarrera { get; set; }
         public string NombreCarrera { get; set; }

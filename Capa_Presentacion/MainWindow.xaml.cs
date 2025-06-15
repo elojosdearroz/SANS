@@ -69,8 +69,9 @@ namespace Capa_Presentacion
 
             if (result == MessageBoxResult.Yes)
             {
+                Capa_Negocios.Login.CerrarSesion();
                 new Login().Show();
-                this.Close(); // Cierra la ventana principal
+                this.Close(); 
             }
         }
 

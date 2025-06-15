@@ -43,14 +43,17 @@ namespace Capa_Presentacion
                 MessageBox.Show("Por favor, ingrese su usuario y contraseña.", "Campos Vacíos", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
-            if (Capa_Negocios.Login.ObtenerUsuarioPorCredenciales(txtUsuario.Text, txtPassword.Password) == null)
+            var usuario = Capa_Negocios.Login.ObtenerUsuarioPorCredenciales(txtUsuario.Text, txtPassword.Password);
+
+            if (usuario == null)
             {
                 MessageBox.Show("Usuario o contraseña incorrectos.", "Error de Autenticación", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
 
+            Capa_Negocios.Login.IniciarSesion(usuario); 
             new MainWindow().Show();
-            this.Close(); // Cierra la ventana de login
+            this.Close();
         }
     }
 }

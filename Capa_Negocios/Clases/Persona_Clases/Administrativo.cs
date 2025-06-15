@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Capa_Negocios.Clases
 {
-    public class Administrativo: Persona
+    public class Administrativo: Usuario
     {
         public string Cargo { get; set; }
         public int Sueldo { get; set; }
