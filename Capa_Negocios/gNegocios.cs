@@ -25,34 +25,9 @@ namespace Capa_Negocios
 
             foreach (DataRow fila in dt.Rows)
             {
-                EdicionMateria estudiante = new EdicionMateria
-                {
-                    Estudiante = new Estudiante
-                    {
-                        Id = Convert.ToInt32(fila["id_estudiante"]),
-                        Nombre = fila["nombre_estudiante"].ToString(),
-                        CI = Convert.ToInt32(fila["ci"]),
-                    },
-                    Materia = new Materia
-                    {
-                        Nombre = fila["nombre_materia"].ToString(),
-                        Creditos = Convert.ToInt32(fila["creditos"]),
-                    },
-                    Semestre = Convert.ToInt32(fila["semestre"]),
-                    Anio = Convert.ToInt32(fila["anio"]),
-                    Grupo = fila["grupo"].ToString(),
-                    Docente = fila["nombre_docente"].ToString(),
-                    Notas = new List<Nota>
-                    {
-                        new Nota { parcial = 1, nota = fila["nota_parcial_1"] != DBNull.Value ? Convert.ToInt32(fila["nota_parcial_1"]) : 0 },
-                        new Nota { parcial = 2, nota = fila["nota_parcial_2"] != DBNull.Value ? Convert.ToInt32(fila["nota_parcial_2"]) : 0 },
-                        new Nota { parcial = 3, nota = fila["nota_parcial_3"] != DBNull.Value ? Convert.ToInt32(fila["nota_parcial_3"]) : 0 },
-                        new Nota { parcial = 4, nota = fila["nota_parcial_4"] != DBNull.Value ? Convert.ToInt32(fila["nota_parcial_4"]) : 0 },
-                    },
-                    NotaFinal = Convert.ToInt32(fila["nota_final"]),
-                    Estado = fila["estado"].ToString(),
-                };
+                EdicionMateria estudiante = EdicionMateriaFactory.FromDataRow(fila);
                 estudiantes.Add(estudiante);
+
             }
             return estudiantes;
         }
@@ -98,25 +73,7 @@ namespace Capa_Negocios
             DataTable dt = gDatos.Consultar("pa_ObtenerEstudiantesPorEdicion", parametros);
             foreach (DataRow fila in dt.Rows)
             {
-                EdicionMateria estudiante = new EdicionMateria
-                {
-                    Estudiante = new Estudiante
-                    {
-                        Id = Convert.ToInt32(fila["id_estudiante"]),
-                        Nombre = fila["nombre_estudiante"].ToString(),
-                        CI = Convert.ToInt32(fila["cedula"]),
-                        NombreCarrera = fila["carrera"].ToString(),
-                    },
-                    Notas = new List<Nota>
-                    {
-                        new Nota { parcial = 1, nota = fila["nota_parcial_1"] != DBNull.Value ? Convert.ToInt32(fila["nota_parcial_1"]) : 0 },
-                        new Nota { parcial = 2, nota = fila["nota_parcial_2"] != DBNull.Value ? Convert.ToInt32(fila["nota_parcial_2"]) : 0 },
-                        new Nota { parcial = 3, nota = fila["nota_parcial_3"] != DBNull.Value ? Convert.ToInt32(fila["nota_parcial_3"]) : 0 },
-                        new Nota { parcial = 4, nota = fila["nota_parcial_4"] != DBNull.Value ? Convert.ToInt32(fila["nota_parcial_4"]) : 0 },
-                    },
-                    NotaFinal = Convert.ToInt32(fila["nota_final"]),
-                    Estado = fila["estado"].ToString(),
-                };
+                EdicionMateria estudiante = EdicionMateriaFactory.FromDataRow(fila);
                 estudiantes.Add(estudiante);
             }
             return estudiantes;

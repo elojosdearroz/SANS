@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Clases\EdicionMateria.cs" />
+    <Compile Include="Clases\EdicionMateriaFactory.cs" />
     <Compile Include="Clases\MateriaNotaReporte.cs" />
     <Compile Include="Clases\Gestion.cs" />
     <Compile Include="Clases\MateriaOfertaReporte.cs" />

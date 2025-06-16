@@ -31,7 +31,7 @@ namespace Capa_Datos
         {
             //Creando una cadena de conexion a la BD
             miCon = new SqlConnection();
-            miCon.ConnectionString = @"data source=localhost;initial catalog=" + bd + ";integrated security =true";
+            miCon.ConnectionString = @"Data Source=LAPTOP-OQ930FCP\MSSQLSERVERLTP;Initial Catalog=UniversidadDB;Integrated Security=True;Encrypt=False";
             string crit = "%" + cSel + "%";
             SQL = "SELECT * FROM " + tb + " WHERE descripcion LIKE " + "'" + crit + "'";
         }
@@ -45,7 +45,7 @@ namespace Capa_Datos
         }
         public static string ObtenerCadenaConexion()
         {
-            return @"data source=localhost;initial catalog=" + "UniversidadDB" + ";integrated security =true";
+            return @"Data Source=LAPTOP-OQ930FCP\MSSQLSERVERLTP;Initial Catalog=UniversidadDB;Integrated Security=True;Encrypt=False";
         }
         #endregion
         public static int Ejecutar(string procedimiento, SqlParameter[] parametros)
