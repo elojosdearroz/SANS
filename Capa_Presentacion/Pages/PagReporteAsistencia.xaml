@@ -6,8 +6,7 @@
       xmlns:local="clr-namespace:Capa_Presentacion"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      xmlns:syncfusion="clr-namespace:BoldReports.UI.Xaml;assembly=BoldReports.Wpf"      
-      Title="Sistema Universitario - Reporte Asistencia"
+      Title="Sistema Universitario - Gestión de Asistencia"
       Background="Transparent">
 
     <Page.Resources>
@@ -59,44 +58,7 @@
             </Setter>
         </Style>
 
-        <Style x:Key="CerrarButton" TargetType="Button" BasedOn="{StaticResource ModernButton}">
-            <Setter Property="Background">
-                <Setter.Value>
-                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                        <GradientStop Color="#a83279" Offset="0"/>
-                        <GradientStop Color="#d84cb8" Offset="0.5"/>
-                        <GradientStop Color="#8e2c6e" Offset="1"/>
-                    </LinearGradientBrush>
-                </Setter.Value>
-            </Setter>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="Button">
-                        <Border Background="{TemplateBinding Background}" 
-                                CornerRadius="18" 
-                                BorderThickness="0">
-                            <ContentPresenter HorizontalAlignment="Center" 
-                                              VerticalAlignment="Center"/>
-                        </Border>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Background">
-                                    <Setter.Value>
-                                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                                            <GradientStop Color="#d84cb8" Offset="0"/>
-                                            <GradientStop Color="#FFC847AA" Offset="0.5"/>
-                                            <GradientStop Color="#FFB7419B" Offset="1"/>
-                                        </LinearGradientBrush>
-                                    </Setter.Value>
-                                </Setter>
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-
-        <Style x:Key="ReportContainer" TargetType="Border">
+        <Style x:Key="DataContainer" TargetType="Border">
             <Setter Property="Background" Value="White"/>
             <Setter Property="BorderBrush" Value="#e0e0e0"/>
             <Setter Property="BorderThickness" Value="1"/>
@@ -120,13 +82,28 @@
             <Setter Property="Padding" Value="8,4"/>
         </Style>
 
+        <Style x:Key="ModernDataGrid" TargetType="DataGrid">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="BorderBrush" Value="#e0e0e0"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="GridLinesVisibility" Value="Horizontal"/>
+            <Setter Property="HorizontalGridLinesBrush" Value="#f0f0f0"/>
+            <Setter Property="RowBackground" Value="White"/>
+            <Setter Property="AlternatingRowBackground" Value="#f8f9fa"/>
+            <Setter Property="HeadersVisibility" Value="Column"/>
+            <Setter Property="AutoGenerateColumns" Value="False"/>
+            <Setter Property="CanUserAddRows" Value="False"/>
+            <Setter Property="CanUserDeleteRows" Value="False"/>
+            <Setter Property="IsReadOnly" Value="True"/>
+            <Setter Property="SelectionMode" Value="Single"/>
+            <Setter Property="SelectionUnit" Value="FullRow"/>
+        </Style>
+
         <Storyboard x:Key="FadeInAnimation">
             <DoubleAnimation Storyboard.TargetProperty="Opacity" 
                              From="0" To="1" Duration="0:0:0.5"/>
         </Storyboard>
     </Page.Resources>
-
-
 
     <Page.Triggers>
         <EventTrigger RoutedEvent="Loaded">
@@ -150,7 +127,7 @@
 
             <!-- Título -->
             <Grid Grid.Row="0" Margin="0,0,0,20">
-                <TextBlock Text="Reporte del Sistema" 
+                <TextBlock Text="Gestión de Asistencia" 
                            FontSize="22" 
                            FontWeight="Bold" 
                            HorizontalAlignment="Center"
@@ -189,16 +166,15 @@
             <!-- Botones -->
             <Grid Grid.Row="2" Margin="0,0,0,20">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                    <Button x:Name="btnGenerarReporte" Content="GENERAR REPORTE"
-                            Style="{StaticResource ModernButton}" Width="150" Margin="0,0,10,0" Click="btnGenerarReporte_Click" />
-
-                    <!--<Button x:Name="btnCerrarReporte" Content="CERRAR REPORTE"
-                            Style="{StaticResource CerrarButton}" Width="150"/> -->
+                    <Button x:Name="btnCargarDatos" Content="CARGAR DATOS"
+                            Style="{StaticResource ModernButton}" Width="150" Margin="0,0,10,0" />
+                    <Button x:Name="btnImprimir" Content="IMPRIMIR"
+                            Style="{StaticResource ModernButton}" Width="150" Margin="0,0,10,0"/>
                 </StackPanel>
             </Grid>
 
-            <!-- Contenedor del Reporte -->
-            <Border Grid.Row="3" Style="{StaticResource ReportContainer}" Margin="0,0,0,20">
+            <!-- Contenedor del DataGrid -->
+            <Border Grid.Row="3" Style="{StaticResource DataContainer}" Margin="0,0,0,20">
                 <Grid Margin="20">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
@@ -208,7 +184,7 @@
 
                     <!-- Info -->
                     <StackPanel Grid.Row="0" Margin="0,0,0,15">
-                        <TextBlock Text="Información del Reporte" FontSize="16" FontWeight="Bold"
+                        <TextBlock Text="Información de Asistencia" FontSize="16" FontWeight="Bold"
                                    Foreground="#2c3e50" Margin="0,0,0,10"/>
                         <Grid>
                             <Grid.ColumnDefinitions>
@@ -223,31 +199,12 @@
 
                     <Border Grid.Row="1" Height="1" Background="#e0e0e0" Margin="0,0,0,15"/>
 
-                    <!-- ReportViewer y Paneles -->
                     <Grid Grid.Row="2">
-                        <syncfusion:ReportViewer Name="reportViewer" 
-                                                 Width="auto"/>
+                        <DataGrid x:Name="dataGridAsistencia" 
+                                  Style="{StaticResource ModernDataGrid}"
+                                  Visibility="Collapsed">
+                        </DataGrid>
 
-
-                        <!-- Panel Sin Datos -->
-                        <StackPanel x:Name="panelSinDatos"
-                                    HorizontalAlignment="Center"
-                                    VerticalAlignment="Center"
-                                    Visibility="Visible">
-                            <TextBlock Text="📊" FontSize="48" Foreground="#bdc3c7" Margin="0,0,0,10" HorizontalAlignment="Center"/>
-                            <TextBlock Text="No hay datos para mostrar" FontSize="16" FontWeight="SemiBold" Foreground="#7f8c8d" HorizontalAlignment="Center"/>
-                            <TextBlock Text="Haga clic en 'Generar Reporte' para cargar los datos" FontSize="12" Foreground="#95a5a6" Margin="0,5,0,0" HorizontalAlignment="Center"/>
-                        </StackPanel>
-
-                        <!-- Panel Cargando -->
-                        <StackPanel x:Name="panelCargando"
-                                    HorizontalAlignment="Center"
-                                    VerticalAlignment="Center"
-                                    Visibility="Collapsed">
-                            <TextBlock Text="⏳" FontSize="48" Foreground="#8e44ad" Margin="0,0,0,10"/>
-                            <TextBlock Text="Generando reporte..." FontSize="16" FontWeight="SemiBold" Foreground="#8e44ad"/>
-                            <TextBlock Text="Por favor espere" FontSize="12" Foreground="#9b59b6" Margin="0,5,0,0"/>
-                        </StackPanel>
                     </Grid>
                 </Grid>
             </Border>
@@ -258,7 +215,7 @@
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                         <TextBlock Text="Sistema Universitario" FontSize="10" Foreground="#7f8c8d"/>
                         <TextBlock Text=" | " FontSize="10" Foreground="#bdc3c7" Margin="5,0"/>
-                        <TextBlock Text="Reporte generado con BoldReports" FontSize="10" Foreground="#7f8c8d"/>
+                        <TextBlock Text="Gestión de Asistencia" FontSize="10" Foreground="#7f8c8d"/>
                     </StackPanel>
                 </Border>
             </Grid>
