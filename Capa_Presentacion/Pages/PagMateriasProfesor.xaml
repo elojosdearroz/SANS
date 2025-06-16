@@ -167,7 +167,17 @@
                 <TextBlock Text="Clases Asignadas" FontSize="12" FontWeight="Bold" 
                            Foreground="#2c3e50" Margin="0,0,0,5"/>
                 <Border Background="White" BorderBrush="#e0e0e0" BorderThickness="1" CornerRadius="3">
-                    <DataGrid x:Name="dgClases" Style="{StaticResource ModernDataGrid}" Height="200"/>
+                    <DataGrid x:Name="dgClases" Style="{StaticResource ModernDataGrid}" Height="200">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="ID" Binding="{Binding IdMateria}" />
+                            <DataGridTextColumn Header="Materia" Binding="{Binding NombreMateria}" />
+                            <DataGridTextColumn Header="Semestre" Binding="{Binding Semestre}" />
+                            <DataGridTextColumn Header="Año" Binding="{Binding Anio}" />
+                            <DataGridTextColumn Header="Grupo" Binding="{Binding Grupo}" />
+                            <DataGridTextColumn Header="Curso" Binding="{Binding Curso}" />
+                            <DataGridTextColumn Header="Bloque" Binding="{Binding Bloque}" />
+                        </DataGrid.Columns>
+                    </DataGrid>
                 </Border>
             </StackPanel>
         </Grid>

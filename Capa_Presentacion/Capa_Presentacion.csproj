@@ -128,16 +128,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="ConsultaDeNotasProfesores.xaml.cs">
+    <Compile Include="Pages\ConsultaDeNotasProfesores.xaml.cs">
       <DependentUpon>ConsultaDeNotasProfesores.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PagMateriasProfesor.xaml.cs">
+    <Compile Include="Pages\PagMateriasProfesor.xaml.cs">
       <DependentUpon>PagMateriasProfesor.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PagReporteAsistencia.xaml.cs">
+    <Compile Include="Pages\PagReporteAsistencia.xaml.cs">
       <DependentUpon>PagReporteAsistencia.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PagReporteNotas.xaml.cs">
+    <Compile Include="Pages\PagReporteNotas.xaml.cs">
       <DependentUpon>PagReporteNotas.xaml</DependentUpon>
     </Compile>
     <Compile Include="Resources\DataSet1.cs">
@@ -158,16 +158,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet3.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Resources\DataSet4.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataSet4.xsd</DependentUpon>
-    </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
-    <Compile Include="VerNotasEstudiante.xaml.cs">
+    <Compile Include="Pages\VerNotasEstudiante.xaml.cs">
       <DependentUpon>VerNotasEstudiante.xaml</DependentUpon>
     </Compile>
-    <Page Include="ConsultaDeNotasProfesores.xaml">
+    <Page Include="Pages\ConsultaDeNotasProfesores.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -190,36 +185,36 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="PagInscripcionMateria.xaml">
+    <Page Include="Pages\PagInscripcionMateria.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PagMateriasProfesor.xaml">
+    <Page Include="Pages\PagMateriasProfesor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PagReporteAsistencia.xaml">
+    <Page Include="Pages\PagReporteAsistencia.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PagReporteNotas.xaml">
+    <Page Include="Pages\PagReporteNotas.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PagReportes.xaml">
+    <Page Include="Pages\PagReportes.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="VerNotasEstudiante.xaml">
+    <Page Include="Pages\VerNotasEstudiante.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PagInscripcionMateria.xaml.cs">
+    <Compile Include="Pages\PagInscripcionMateria.xaml.cs">
       <DependentUpon>PagInscripcionMateria.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PagReportes.xaml.cs">
+    <Compile Include="Pages\PagReportes.xaml.cs">
       <DependentUpon>PagReportes.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -243,7 +238,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <EmbeddedResource Include="Resources\ReporteAsistenciasPorEdicion.rdlc" />
-    <EmbeddedResource Include="Resources\ReporteNotasMateriasAprobadasPorEstudiante.rdlc" />
     <EmbeddedResource Include="Resources\ReporteNotasMateriasPorEstudiante.rdlc" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -282,17 +276,6 @@
     </None>
     <None Include="Resources\DataSet3.xss">
       <DependentUpon>DataSet3.xsd</DependentUpon>
-    </None>
-    <None Include="Resources\DataSet4.xsc">
-      <DependentUpon>DataSet4.xsd</DependentUpon>
-    </None>
-    <None Include="Resources\DataSet4.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DataSet4.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="Resources\DataSet4.xss">
-      <DependentUpon>DataSet4.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

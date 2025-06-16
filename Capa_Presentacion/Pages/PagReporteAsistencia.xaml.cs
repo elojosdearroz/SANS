@@ -45,40 +45,7 @@ namespace Capa_Presentacion
 
         private void btnGenerarReporte_Click(object sender, RoutedEventArgs e)
         {
-            int idEdicion = (int)cmbMaterias.SelectedValue;
-            try
-            {
-                var adaptador = new pa_ReporteAsistenciasPorEdicionTableAdapter();
-                var tabla = adaptador.GetData(idEdicion);
-
-                string rutaReporte = @"C:\Users\nacho\Desktop\ISI\Semestre III\SANS\SANS\Capa_Presentacion\Resources\ReporteAsistenciasPorEdicion.rdlc";
-
-                reportViewer.ReportPath = rutaReporte;
-
-                var datos = tabla.AsEnumerable()
-                .Select(row => new Asistencia
-                {
-                    nombre_estudiante = row.Field<string>("nombre_estudiante"),
-                    fecha = row.Field<DateTime>("fecha")
-                }).ToList();
-
-                reportViewer.ProcessingMode = BoldReports.UI.Xaml.ProcessingMode.Local;
-                reportViewer.ReportPath = rutaReporte;
-                reportViewer.DataSources.Clear();
-                reportViewer.DataSources.Add(new BoldReports.Windows.ReportDataSource
-                {
-                    Name = "ReporteAsistenciasPorEdicion",
-                    Value = datos
-                });
-
-                reportViewer.RefreshReport();
-                panelSinDatos.Visibility = Visibility.Collapsed;
-                reportViewer.Visibility = Visibility.Visible;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al cargar el reporte: " + ex.Message);
-            }
+            
         }
     }
 }

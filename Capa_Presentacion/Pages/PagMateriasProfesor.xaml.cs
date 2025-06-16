@@ -28,6 +28,14 @@ namespace Capa_Presentacion
             usuario = Capa_Negocios.Login.Usuarioactual;
 
             txtNombreProfesor.Text = usuario.Nombre + " " + usuario.Apellido;
+
+            CargarMaterias();
+        }
+
+        private void CargarMaterias()
+        {
+            dgClases.ItemsSource = null;
+            dgClases.ItemsSource = gNegocios.ObtenerEdicionesPorDocente(usuario.Id);
         }
     }
 }

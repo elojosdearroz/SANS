@@ -279,9 +279,9 @@ namespace Capa_Presentacion.Resources {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class pa_ReporteMateriasOfertadasDataTable : global::System.Data.TypedTableBase<pa_ReporteMateriasOfertadasRow> {
             
-            private global::System.Data.DataColumn columnid_Materia;
+            private global::System.Data.DataColumn columnid_materia;
             
-            private global::System.Data.DataColumn columnNombreMateria;
+            private global::System.Data.DataColumn columnnombre_materia;
             
             private global::System.Data.DataColumn columncreditos;
             
@@ -289,15 +289,7 @@ namespace Capa_Presentacion.Resources {
             
             private global::System.Data.DataColumn columnanio;
             
-            private global::System.Data.DataColumn columnhora_inicio;
-            
-            private global::System.Data.DataColumn columnhora_fin;
-            
-            private global::System.Data.DataColumn columnnum_aula;
-            
-            private global::System.Data.DataColumn columnbloque;
-            
-            private global::System.Data.DataColumn columnNombreDocente;
+            private global::System.Data.DataColumn columnnombre_docente;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -334,17 +326,17 @@ namespace Capa_Presentacion.Resources {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn id_MateriaColumn {
+            public global::System.Data.DataColumn id_materiaColumn {
                 get {
-                    return this.columnid_Materia;
+                    return this.columnid_materia;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn NombreMateriaColumn {
+            public global::System.Data.DataColumn nombre_materiaColumn {
                 get {
-                    return this.columnNombreMateria;
+                    return this.columnnombre_materia;
                 }
             }
             
@@ -374,41 +366,9 @@ namespace Capa_Presentacion.Resources {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn hora_inicioColumn {
+            public global::System.Data.DataColumn nombre_docenteColumn {
                 get {
-                    return this.columnhora_inicio;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn hora_finColumn {
-                get {
-                    return this.columnhora_fin;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn num_aulaColumn {
-                get {
-                    return this.columnnum_aula;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn bloqueColumn {
-                get {
-                    return this.columnbloque;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn NombreDocenteColumn {
-                get {
-                    return this.columnNombreDocente;
+                    return this.columnnombre_docente;
                 }
             }
             
@@ -449,19 +409,15 @@ namespace Capa_Presentacion.Resources {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public pa_ReporteMateriasOfertadasRow Addpa_ReporteMateriasOfertadasRow(string NombreMateria, int creditos, int semestre, int anio, System.TimeSpan hora_inicio, System.TimeSpan hora_fin, string num_aula, string bloque, string NombreDocente) {
+            public pa_ReporteMateriasOfertadasRow Addpa_ReporteMateriasOfertadasRow(string nombre_materia, int creditos, int semestre, int anio, string nombre_docente) {
                 pa_ReporteMateriasOfertadasRow rowpa_ReporteMateriasOfertadasRow = ((pa_ReporteMateriasOfertadasRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
-                        NombreMateria,
+                        nombre_materia,
                         creditos,
                         semestre,
                         anio,
-                        hora_inicio,
-                        hora_fin,
-                        num_aula,
-                        bloque,
-                        NombreDocente};
+                        nombre_docente};
                 rowpa_ReporteMateriasOfertadasRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowpa_ReporteMateriasOfertadasRow);
                 return rowpa_ReporteMateriasOfertadasRow;
@@ -469,9 +425,9 @@ namespace Capa_Presentacion.Resources {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public pa_ReporteMateriasOfertadasRow FindByid_Materia(int id_Materia) {
+            public pa_ReporteMateriasOfertadasRow FindByid_materia(int id_materia) {
                 return ((pa_ReporteMateriasOfertadasRow)(this.Rows.Find(new object[] {
-                            id_Materia})));
+                            id_materia})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -491,52 +447,38 @@ namespace Capa_Presentacion.Resources {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             internal void InitVars() {
-                this.columnid_Materia = base.Columns["id_Materia"];
-                this.columnNombreMateria = base.Columns["NombreMateria"];
+                this.columnid_materia = base.Columns["id_materia"];
+                this.columnnombre_materia = base.Columns["nombre_materia"];
                 this.columncreditos = base.Columns["creditos"];
                 this.columnsemestre = base.Columns["semestre"];
                 this.columnanio = base.Columns["anio"];
-                this.columnhora_inicio = base.Columns["hora_inicio"];
-                this.columnhora_fin = base.Columns["hora_fin"];
-                this.columnnum_aula = base.Columns["num_aula"];
-                this.columnbloque = base.Columns["bloque"];
-                this.columnNombreDocente = base.Columns["NombreDocente"];
+                this.columnnombre_docente = base.Columns["nombre_docente"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             private void InitClass() {
-                this.columnid_Materia = new global::System.Data.DataColumn("id_Materia", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnid_Materia);
-                this.columnNombreMateria = new global::System.Data.DataColumn("NombreMateria", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnNombreMateria);
+                this.columnid_materia = new global::System.Data.DataColumn("id_materia", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnid_materia);
+                this.columnnombre_materia = new global::System.Data.DataColumn("nombre_materia", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnombre_materia);
                 this.columncreditos = new global::System.Data.DataColumn("creditos", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncreditos);
                 this.columnsemestre = new global::System.Data.DataColumn("semestre", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnsemestre);
                 this.columnanio = new global::System.Data.DataColumn("anio", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnanio);
-                this.columnhora_inicio = new global::System.Data.DataColumn("hora_inicio", typeof(global::System.TimeSpan), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnhora_inicio);
-                this.columnhora_fin = new global::System.Data.DataColumn("hora_fin", typeof(global::System.TimeSpan), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnhora_fin);
-                this.columnnum_aula = new global::System.Data.DataColumn("num_aula", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnnum_aula);
-                this.columnbloque = new global::System.Data.DataColumn("bloque", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnbloque);
-                this.columnNombreDocente = new global::System.Data.DataColumn("NombreDocente", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnNombreDocente);
+                this.columnnombre_docente = new global::System.Data.DataColumn("nombre_docente", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnombre_docente);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnid_Materia}, true));
-                this.columnid_Materia.AutoIncrement = true;
-                this.columnid_Materia.AllowDBNull = false;
-                this.columnid_Materia.ReadOnly = true;
-                this.columnid_Materia.Unique = true;
-                this.columnNombreMateria.MaxLength = 100;
-                this.columnnum_aula.MaxLength = 10;
-                this.columnbloque.MaxLength = 10;
-                this.columnNombreDocente.ReadOnly = true;
-                this.columnNombreDocente.MaxLength = 201;
+                                this.columnid_materia}, true));
+                this.columnid_materia.AutoIncrement = true;
+                this.columnid_materia.AllowDBNull = false;
+                this.columnid_materia.ReadOnly = true;
+                this.columnid_materia.Unique = true;
+                this.columnnombre_materia.MaxLength = 100;
+                this.columnnombre_docente.ReadOnly = true;
+                this.columnnombre_docente.MaxLength = 201;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -679,29 +621,29 @@ namespace Capa_Presentacion.Resources {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int id_Materia {
+            public int id_materia {
                 get {
-                    return ((int)(this[this.tablepa_ReporteMateriasOfertadas.id_MateriaColumn]));
+                    return ((int)(this[this.tablepa_ReporteMateriasOfertadas.id_materiaColumn]));
                 }
                 set {
-                    this[this.tablepa_ReporteMateriasOfertadas.id_MateriaColumn] = value;
+                    this[this.tablepa_ReporteMateriasOfertadas.id_materiaColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string NombreMateria {
+            public string nombre_materia {
                 get {
                     try {
-                        return ((string)(this[this.tablepa_ReporteMateriasOfertadas.NombreMateriaColumn]));
+                        return ((string)(this[this.tablepa_ReporteMateriasOfertadas.nombre_materiaColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'NombreMateria\' de la tabla \'pa_ReporteMateriasOfertadas\' " +
-                                "es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'nombre_materia\' de la tabla \'pa_ReporteMateriasOfertadas\'" +
+                                " es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablepa_ReporteMateriasOfertadas.NombreMateriaColumn] = value;
+                    this[this.tablepa_ReporteMateriasOfertadas.nombre_materiaColumn] = value;
                 }
             }
             
@@ -758,99 +700,31 @@ namespace Capa_Presentacion.Resources {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public System.TimeSpan hora_inicio {
+            public string nombre_docente {
                 get {
                     try {
-                        return ((global::System.TimeSpan)(this[this.tablepa_ReporteMateriasOfertadas.hora_inicioColumn]));
+                        return ((string)(this[this.tablepa_ReporteMateriasOfertadas.nombre_docenteColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'hora_inicio\' de la tabla \'pa_ReporteMateriasOfertadas\' es" +
-                                " DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'nombre_docente\' de la tabla \'pa_ReporteMateriasOfertadas\'" +
+                                " es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablepa_ReporteMateriasOfertadas.hora_inicioColumn] = value;
+                    this[this.tablepa_ReporteMateriasOfertadas.nombre_docenteColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public System.TimeSpan hora_fin {
-                get {
-                    try {
-                        return ((global::System.TimeSpan)(this[this.tablepa_ReporteMateriasOfertadas.hora_finColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'hora_fin\' de la tabla \'pa_ReporteMateriasOfertadas\' es DB" +
-                                "Null.", e);
-                    }
-                }
-                set {
-                    this[this.tablepa_ReporteMateriasOfertadas.hora_finColumn] = value;
-                }
+            public bool Isnombre_materiaNull() {
+                return this.IsNull(this.tablepa_ReporteMateriasOfertadas.nombre_materiaColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string num_aula {
-                get {
-                    try {
-                        return ((string)(this[this.tablepa_ReporteMateriasOfertadas.num_aulaColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'num_aula\' de la tabla \'pa_ReporteMateriasOfertadas\' es DB" +
-                                "Null.", e);
-                    }
-                }
-                set {
-                    this[this.tablepa_ReporteMateriasOfertadas.num_aulaColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string bloque {
-                get {
-                    try {
-                        return ((string)(this[this.tablepa_ReporteMateriasOfertadas.bloqueColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'bloque\' de la tabla \'pa_ReporteMateriasOfertadas\' es DBNu" +
-                                "ll.", e);
-                    }
-                }
-                set {
-                    this[this.tablepa_ReporteMateriasOfertadas.bloqueColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string NombreDocente {
-                get {
-                    try {
-                        return ((string)(this[this.tablepa_ReporteMateriasOfertadas.NombreDocenteColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'NombreDocente\' de la tabla \'pa_ReporteMateriasOfertadas\' " +
-                                "es DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablepa_ReporteMateriasOfertadas.NombreDocenteColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsNombreMateriaNull() {
-                return this.IsNull(this.tablepa_ReporteMateriasOfertadas.NombreMateriaColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetNombreMateriaNull() {
-                this[this.tablepa_ReporteMateriasOfertadas.NombreMateriaColumn] = global::System.Convert.DBNull;
+            public void Setnombre_materiaNull() {
+                this[this.tablepa_ReporteMateriasOfertadas.nombre_materiaColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -891,62 +765,14 @@ namespace Capa_Presentacion.Resources {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool Ishora_inicioNull() {
-                return this.IsNull(this.tablepa_ReporteMateriasOfertadas.hora_inicioColumn);
+            public bool Isnombre_docenteNull() {
+                return this.IsNull(this.tablepa_ReporteMateriasOfertadas.nombre_docenteColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Sethora_inicioNull() {
-                this[this.tablepa_ReporteMateriasOfertadas.hora_inicioColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool Ishora_finNull() {
-                return this.IsNull(this.tablepa_ReporteMateriasOfertadas.hora_finColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Sethora_finNull() {
-                this[this.tablepa_ReporteMateriasOfertadas.hora_finColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool Isnum_aulaNull() {
-                return this.IsNull(this.tablepa_ReporteMateriasOfertadas.num_aulaColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Setnum_aulaNull() {
-                this[this.tablepa_ReporteMateriasOfertadas.num_aulaColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsbloqueNull() {
-                return this.IsNull(this.tablepa_ReporteMateriasOfertadas.bloqueColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetbloqueNull() {
-                this[this.tablepa_ReporteMateriasOfertadas.bloqueColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsNombreDocenteNull() {
-                return this.IsNull(this.tablepa_ReporteMateriasOfertadas.NombreDocenteColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetNombreDocenteNull() {
-                this[this.tablepa_ReporteMateriasOfertadas.NombreDocenteColumn] = global::System.Convert.DBNull;
+            public void Setnombre_docenteNull() {
+                this[this.tablepa_ReporteMateriasOfertadas.nombre_docenteColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1109,16 +935,12 @@ namespace Capa_Presentacion.Resources.DataSet1TableAdapters {
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "pa_ReporteMateriasOfertadas";
-            tableMapping.ColumnMappings.Add("id_Materia", "id_Materia");
-            tableMapping.ColumnMappings.Add("NombreMateria", "NombreMateria");
+            tableMapping.ColumnMappings.Add("id_materia", "id_materia");
+            tableMapping.ColumnMappings.Add("nombre_materia", "nombre_materia");
             tableMapping.ColumnMappings.Add("creditos", "creditos");
             tableMapping.ColumnMappings.Add("semestre", "semestre");
             tableMapping.ColumnMappings.Add("anio", "anio");
-            tableMapping.ColumnMappings.Add("hora_inicio", "hora_inicio");
-            tableMapping.ColumnMappings.Add("hora_fin", "hora_fin");
-            tableMapping.ColumnMappings.Add("num_aula", "num_aula");
-            tableMapping.ColumnMappings.Add("bloque", "bloque");
-            tableMapping.ColumnMappings.Add("NombreDocente", "NombreDocente");
+            tableMapping.ColumnMappings.Add("nombre_docente", "nombre_docente");
             this._adapter.TableMappings.Add(tableMapping);
         }
         

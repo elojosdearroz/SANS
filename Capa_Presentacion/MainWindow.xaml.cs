@@ -113,6 +113,8 @@ namespace Capa_Presentacion
         private void InscribirMaterias_Click(object sender, RoutedEventArgs e)
         {
             MainFrame.Navigate(new PagInscripcionMateria());
+            CollapseSidebar();
+            isSidebarExpanded = !isSidebarExpanded;
         }
 
         // Confirma y cierra la sesión actual

@@ -62,18 +62,14 @@ namespace Capa_Presentacion
                 reportViewer.ReportPath = rutaReporte;
 
                 var datos = tabla.AsEnumerable()
-                .Select(row => new MateriaOfertada
+                .Select(row => new MateriaOfertaReporte
                 {
-                    id_Materia = row.Field<int>("id_Materia"),
-                    NombreMateria = row.Field<string>("NombreMateria"),
+                    id_materia = row.Field<int>("id_materia"),
+                    nombre_materia = row.Field<string>("nombre_materia"),
                     creditos = row.Field<int>("creditos"),
                     semestre = row.Field<int>("semestre"),
                     anio = row.Field<int>("anio"),
-                    hora_inicio = row.Field<TimeSpan>("hora_inicio"),
-                    hora_fin = row.Field<TimeSpan>("hora_fin"),
-                    num_aula = row.Field<string>("num_aula"),
-                    bloque = row.Field<string>("bloque"),
-                    NombreDocente = row.Field<string>("NombreDocente")
+                    nombre_docente = row.Field<string>("nombre_docente"),
                 }).ToList();
 
                 reportViewer.ProcessingMode = BoldReports.UI.Xaml.ProcessingMode.Local;

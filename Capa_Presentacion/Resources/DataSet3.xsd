@@ -23,11 +23,21 @@
               </DbSource>
             </MainSource>
             <Mappings>
+              <Mapping SourceColumn="id_estudiante" DataSetColumn="id_estudiante" />
               <Mapping SourceColumn="nombre_estudiante" DataSetColumn="nombre_estudiante" />
+              <Mapping SourceColumn="ci" DataSetColumn="ci" />
               <Mapping SourceColumn="nombre_materia" DataSetColumn="nombre_materia" />
-              <Mapping SourceColumn="nota" DataSetColumn="nota" />
-              <Mapping SourceColumn="nombre_docente" DataSetColumn="nombre_docente" />
+              <Mapping SourceColumn="creditos" DataSetColumn="creditos" />
+              <Mapping SourceColumn="semestre" DataSetColumn="semestre" />
+              <Mapping SourceColumn="anio" DataSetColumn="anio" />
               <Mapping SourceColumn="grupo" DataSetColumn="grupo" />
+              <Mapping SourceColumn="nombre_docente" DataSetColumn="nombre_docente" />
+              <Mapping SourceColumn="nota_parcial_1" DataSetColumn="nota_parcial_1" />
+              <Mapping SourceColumn="nota_parcial_2" DataSetColumn="nota_parcial_2" />
+              <Mapping SourceColumn="nota_parcial_3" DataSetColumn="nota_parcial_3" />
+              <Mapping SourceColumn="nota_parcial_4" DataSetColumn="nota_parcial_4" />
+              <Mapping SourceColumn="nota_final" DataSetColumn="nota_final" />
+              <Mapping SourceColumn="estado" DataSetColumn="estado" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -42,10 +52,18 @@
         <xs:element name="pa_ReporteNotasMateriasPorEstudiante" msprop:Generator_RowEvHandlerName="pa_ReporteNotasMateriasPorEstudianteRowChangeEventHandler" msprop:Generator_RowDeletedName="pa_ReporteNotasMateriasPorEstudianteRowDeleted" msprop:Generator_RowDeletingName="pa_ReporteNotasMateriasPorEstudianteRowDeleting" msprop:Generator_RowEvArgName="pa_ReporteNotasMateriasPorEstudianteRowChangeEvent" msprop:Generator_TablePropName="pa_ReporteNotasMateriasPorEstudiante" msprop:Generator_RowChangedName="pa_ReporteNotasMateriasPorEstudianteRowChanged" msprop:Generator_RowChangingName="pa_ReporteNotasMateriasPorEstudianteRowChanging" msprop:Generator_TableClassName="pa_ReporteNotasMateriasPorEstudianteDataTable" msprop:Generator_RowClassName="pa_ReporteNotasMateriasPorEstudianteRow" msprop:Generator_TableVarName="tablepa_ReporteNotasMateriasPorEstudiante" msprop:Generator_UserTableName="pa_ReporteNotasMateriasPorEstudiante">
           <xs:complexType>
             <xs:sequence>
+              <xs:element name="id_estudiante" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:Generator_ColumnPropNameInRow="id_estudiante" msprop:Generator_ColumnPropNameInTable="id_estudianteColumn" msprop:Generator_ColumnVarNameInTable="columnid_estudiante" msprop:Generator_UserColumnName="id_estudiante" type="xs:int" />
               <xs:element name="nombre_estudiante" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="nombre_estudiante" msprop:Generator_ColumnPropNameInTable="nombre_estudianteColumn" msprop:Generator_ColumnVarNameInTable="columnnombre_estudiante" msprop:Generator_UserColumnName="nombre_estudiante" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="201" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ci" msprop:Generator_ColumnPropNameInRow="ci" msprop:Generator_ColumnPropNameInTable="ciColumn" msprop:Generator_ColumnVarNameInTable="columnci" msprop:Generator_UserColumnName="ci" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
@@ -56,7 +74,16 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="nota" msprop:Generator_ColumnPropNameInRow="nota" msprop:Generator_ColumnPropNameInTable="notaColumn" msprop:Generator_ColumnVarNameInTable="columnnota" msprop:Generator_UserColumnName="nota" type="xs:int" minOccurs="0" />
+              <xs:element name="creditos" msprop:Generator_ColumnPropNameInRow="creditos" msprop:Generator_ColumnPropNameInTable="creditosColumn" msprop:Generator_ColumnVarNameInTable="columncreditos" msprop:Generator_UserColumnName="creditos" type="xs:int" minOccurs="0" />
+              <xs:element name="semestre" msprop:Generator_ColumnPropNameInRow="semestre" msprop:Generator_ColumnPropNameInTable="semestreColumn" msprop:Generator_ColumnVarNameInTable="columnsemestre" msprop:Generator_UserColumnName="semestre" type="xs:int" minOccurs="0" />
+              <xs:element name="anio" msprop:Generator_ColumnPropNameInRow="anio" msprop:Generator_ColumnPropNameInTable="anioColumn" msprop:Generator_ColumnVarNameInTable="columnanio" msprop:Generator_UserColumnName="anio" type="xs:int" minOccurs="0" />
+              <xs:element name="grupo" msprop:Generator_ColumnPropNameInRow="grupo" msprop:Generator_ColumnPropNameInTable="grupoColumn" msprop:Generator_ColumnVarNameInTable="columngrupo" msprop:Generator_UserColumnName="grupo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
               <xs:element name="nombre_docente" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="nombre_docente" msprop:Generator_ColumnPropNameInTable="nombre_docenteColumn" msprop:Generator_ColumnVarNameInTable="columnnombre_docente" msprop:Generator_UserColumnName="nombre_docente" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
@@ -64,10 +91,15 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="grupo" msprop:Generator_ColumnPropNameInRow="grupo" msprop:Generator_ColumnPropNameInTable="grupoColumn" msprop:Generator_ColumnVarNameInTable="columngrupo" msprop:Generator_UserColumnName="grupo" minOccurs="0">
+              <xs:element name="nota_parcial_1" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="nota_parcial_1" msprop:Generator_ColumnPropNameInTable="nota_parcial_1Column" msprop:Generator_ColumnVarNameInTable="columnnota_parcial_1" msprop:Generator_UserColumnName="nota_parcial_1" type="xs:decimal" minOccurs="0" />
+              <xs:element name="nota_parcial_2" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="nota_parcial_2" msprop:Generator_ColumnPropNameInTable="nota_parcial_2Column" msprop:Generator_ColumnVarNameInTable="columnnota_parcial_2" msprop:Generator_UserColumnName="nota_parcial_2" type="xs:decimal" minOccurs="0" />
+              <xs:element name="nota_parcial_3" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="nota_parcial_3" msprop:Generator_ColumnPropNameInTable="nota_parcial_3Column" msprop:Generator_ColumnVarNameInTable="columnnota_parcial_3" msprop:Generator_UserColumnName="nota_parcial_3" type="xs:decimal" minOccurs="0" />
+              <xs:element name="nota_parcial_4" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="nota_parcial_4" msprop:Generator_ColumnPropNameInTable="nota_parcial_4Column" msprop:Generator_ColumnVarNameInTable="columnnota_parcial_4" msprop:Generator_UserColumnName="nota_parcial_4" type="xs:decimal" minOccurs="0" />
+              <xs:element name="nota_final" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="nota_final" msprop:Generator_ColumnPropNameInTable="nota_finalColumn" msprop:Generator_ColumnVarNameInTable="columnnota_final" msprop:Generator_UserColumnName="nota_final" type="xs:decimal" minOccurs="0" />
+              <xs:element name="estado" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="estado" msprop:Generator_ColumnPropNameInTable="estadoColumn" msprop:Generator_ColumnVarNameInTable="columnestado" msprop:Generator_UserColumnName="estado" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
+                    <xs:maxLength value="9" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
@@ -76,5 +108,9 @@
         </xs:element>
       </xs:choice>
     </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:pa_ReporteNotasMateriasPorEstudiante" />
+      <xs:field xpath="mstns:id_estudiante" />
+    </xs:unique>
   </xs:element>
 </xs:schema>

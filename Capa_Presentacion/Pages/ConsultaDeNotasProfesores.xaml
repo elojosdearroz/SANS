@@ -203,7 +203,7 @@
                                           Padding="8,0"
                                           Height="32"
                                           VerticalContentAlignment="Center"
-                                          Foreground="#2c3e50" />
+                                          Foreground="#2c3e50" SelectionChanged="cmbMaterias_SelectionChanged" />
                             </StackPanel>
 
                         </Grid>
@@ -225,13 +225,23 @@
                             CornerRadius="4">
                         <DataGrid x:Name="dgEstudiantesNotas" 
                                   Style="{StaticResource ModernDataGrid}"
-                                  Height="250"
+                                  Height="250" SelectionChanged="dgEstudiantesNotas_SelectionChanged"
                                   >
                             <DataGrid.Columns>
-                                <DataGridTextColumn Header="ID Estudiante" Width="100"/>
-                                <DataGridTextColumn Header="Nombre Completo" Width="200"/>
-                                <DataGridTextColumn Header="Carrera" Width="150"/>
-                                <DataGridTextColumn Header="Nota" Width="80"/>
+                                <DataGridTextColumn Header="Id Estudiante" Binding="{Binding IdEstudiante}" />
+                                <DataGridTextColumn Header="Estudiante" Binding="{Binding NombreEstudiante}" />
+                                <DataGridTextColumn Header="Cedula" Binding="{Binding CedulaEstudiante}" />
+                                <DataGridTextColumn Header="Carrera" Binding="{Binding NombreCarrera}" />
+
+
+                                <!-- Notas por parcial -->
+                                <DataGridTextColumn Header="Parcial 1" Binding="{Binding Nota1}" />
+                                <DataGridTextColumn Header="Parcial 2" Binding="{Binding Nota2}" />
+                                <DataGridTextColumn Header="Parcial 3" Binding="{Binding Nota3}" />
+                                <DataGridTextColumn Header="Parcial 4" Binding="{Binding Nota4}" />
+
+                                <DataGridTextColumn Header="Nota Final" Binding="{Binding NotaFinal}" />
+                                <DataGridTextColumn Header="Estado" Binding="{Binding Estado}" />
                             </DataGrid.Columns>
                         </DataGrid>
                     </Border>
@@ -285,7 +295,7 @@
 
                         <!-- Panel de Edición de Notas -->
                         <StackPanel Grid.Column="1">
-                            <TextBlock Text="Nota" 
+                            <TextBlock Text="Notas" 
                                        FontSize="14" 
                                        FontWeight="Bold"
                                        Foreground="#2c3e50"
@@ -302,12 +312,13 @@
                                     <ColumnDefinition Width="80"/>
                                     <ColumnDefinition Width="80"/>
                                     <ColumnDefinition Width="80"/>
+                                    <ColumnDefinition Width="80"/>
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
 
-                                <!-- Nota -->
+                                <!-- Nota 1 -->
                                 <StackPanel Grid.Row="0" Grid.Column="0" Margin="0,0,5,0">
-                                    <TextBlock Text="Nota" FontSize="12" FontWeight="SemiBold" Foreground="#2c3e50" Margin="0,0,0,5"/>
+                                    <TextBlock Text="Nota 1" FontSize="12" FontWeight="SemiBold" Foreground="#2c3e50" Margin="0,0,0,5"/>
                                     <Border Background="White" BorderBrush="#e0e0e0" BorderThickness="1" CornerRadius="4">
                                         <TextBox x:Name="txtNota1" 
                                                  Background="Transparent"
@@ -316,22 +327,63 @@
                                                  Padding="8,0"
                                                  Height="32"
                                                  VerticalContentAlignment="Center"
-                                                 Foreground="#2c3e50"
-                                                 />
+                                                 Foreground="#2c3e50"/>
                                     </Border>
                                 </StackPanel>
 
+                                <!-- Nota 2 -->
+                                <StackPanel Grid.Row="0" Grid.Column="1" Margin="0,0,5,0">
+                                    <TextBlock Text="Nota 2" FontSize="12" FontWeight="SemiBold" Foreground="#2c3e50" Margin="0,0,0,5"/>
+                                    <Border Background="White" BorderBrush="#e0e0e0" BorderThickness="1" CornerRadius="4">
+                                        <TextBox x:Name="txtNota2" 
+                                                 Background="Transparent"
+                                                 BorderThickness="0"
+                                                 FontSize="12"
+                                                 Padding="8,0"
+                                                 Height="32"
+                                                 VerticalContentAlignment="Center"
+                                                 Foreground="#2c3e50"/>
+                                    </Border>
+                                </StackPanel>
 
+                                <!-- Nota 3 -->
+                                <StackPanel Grid.Row="0" Grid.Column="2" Margin="0,0,5,0">
+                                    <TextBlock Text="Nota 3" FontSize="12" FontWeight="SemiBold" Foreground="#2c3e50" Margin="0,0,0,5"/>
+                                    <Border Background="White" BorderBrush="#e0e0e0" BorderThickness="1" CornerRadius="4">
+                                        <TextBox x:Name="txtNota3" 
+                                                 Background="Transparent"
+                                                 BorderThickness="0"
+                                                 FontSize="12"
+                                                 Padding="8,0"
+                                                 Height="32"
+                                                 VerticalContentAlignment="Center"
+                                                 Foreground="#2c3e50"/>
+                                    </Border>
+                                </StackPanel>
 
-                                <!-- Boton -->
-                                <StackPanel Grid.Row="2" Grid.ColumnSpan="3" Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,15,0,0">
+                                <!-- Nota 4 -->
+                                <StackPanel Grid.Row="0" Grid.Column="3" Margin="0,0,5,0">
+                                    <TextBlock Text="Nota 4" FontSize="12" FontWeight="SemiBold" Foreground="#2c3e50" Margin="0,0,0,5"/>
+                                    <Border Background="White" BorderBrush="#e0e0e0" BorderThickness="1" CornerRadius="4">
+                                        <TextBox x:Name="txtNota4" 
+                                                 Background="Transparent"
+                                                 BorderThickness="0"
+                                                 FontSize="12"
+                                                 Padding="8,0"
+                                                 Height="32"
+                                                 VerticalContentAlignment="Center"
+                                                 Foreground="#2c3e50"/>
+                                    </Border>
+                                </StackPanel>
+
+                                <!-- Botón Guardar -->
+                                <StackPanel Grid.Row="2" Grid.ColumnSpan="4" Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,15,0,0">
                                     <Button x:Name="btnGuardarNotas"
                                             Content="GUARDAR NOTAS"
                                             Style="{StaticResource SaveButton}"
                                             Width="130"
                                             Margin="0,0,10,0" 
-                                            />
-
+                                            Click="btnGuardarNotas_Click"/>
                                 </StackPanel>
                             </Grid>
                         </StackPanel>

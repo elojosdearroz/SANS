@@ -38,7 +38,8 @@ namespace Capa_Presentacion
         }
         private void cmbGestion_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            dgNotas.ItemsSource = RellenarFromsEstudiante.ObtenerNotasPorEstudianteYGestion(usuario.Id, (int)cmbGestion.SelectedValue);
+            dgNotas.ItemsSource = null;
+            dgNotas.ItemsSource = gNegocios.ReporteNotasMateriasPorEstudiante(usuario.Id, (int)cmbGestion.SelectedValue);
         }
     }
 }

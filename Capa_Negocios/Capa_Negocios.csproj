@@ -43,18 +43,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Clases\EdicionMateria.cs" />
-    <Compile Include="Clases\MateriaOfertada.cs" />
+    <Compile Include="Clases\MateriaNotaReporte.cs" />
     <Compile Include="Clases\Gestion.cs" />
+    <Compile Include="Clases\MateriaOfertaReporte.cs" />
     <Compile Include="Clases\Nota.cs" />
     <Compile Include="Clases\Persona_Clases\Administrativo.cs" />
     <Compile Include="Clases\Persona_Clases\Docente.cs" />
     <Compile Include="Clases\Persona_Clases\Estudiante.cs" />
+    <Compile Include="gNegocios.cs" />
     <Compile Include="Login.cs" />
-    <Compile Include="RellenarFromsEstudiante.cs" />
-    <Compile Include="RellenarFromsInscripcion.cs" />
     <Compile Include="Clases\Materia.cs" />
     <Compile Include="Clases\Carrera.cs" />
-    <Compile Include="Clases\Asistencia.cs" />
     <Compile Include="Clases\Persona.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RellenarFromsReportes.cs" />

@@ -82,10 +82,14 @@ namespace Capa_Negocios
                 EdicionMateria edicion = new EdicionMateria
                 {
                     Id = Convert.ToInt32(fila["id_Edicion"]),
-                    NombreMateria = fila["nombre_materia"].ToString(),
+                    Materia = new Materia
+                    {
+                        Nombre = fila["nombre_materia"].ToString()
+                    },
                     Grupo = fila["grupo"].ToString(),
                     Anio = Convert.ToInt32(fila["anio"])
                 };
+
                 ediciones.Add(edicion);
             }
             return ediciones;

@@ -24,16 +24,12 @@
               </DbSource>
             </MainSource>
             <Mappings>
-              <Mapping SourceColumn="id_Materia" DataSetColumn="id_Materia" />
-              <Mapping SourceColumn="NombreMateria" DataSetColumn="NombreMateria" />
+              <Mapping SourceColumn="id_materia" DataSetColumn="id_materia" />
+              <Mapping SourceColumn="nombre_materia" DataSetColumn="nombre_materia" />
               <Mapping SourceColumn="creditos" DataSetColumn="creditos" />
               <Mapping SourceColumn="semestre" DataSetColumn="semestre" />
               <Mapping SourceColumn="anio" DataSetColumn="anio" />
-              <Mapping SourceColumn="hora_inicio" DataSetColumn="hora_inicio" />
-              <Mapping SourceColumn="hora_fin" DataSetColumn="hora_fin" />
-              <Mapping SourceColumn="num_aula" DataSetColumn="num_aula" />
-              <Mapping SourceColumn="bloque" DataSetColumn="bloque" />
-              <Mapping SourceColumn="NombreDocente" DataSetColumn="NombreDocente" />
+              <Mapping SourceColumn="nombre_docente" DataSetColumn="nombre_docente" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -42,14 +38,14 @@
       </DataSource>
     </xs:appinfo>
   </xs:annotation>
-  <xs:element name="DataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_UserDSName="DataSet1" msprop:Generator_DataSetName="DataSet1">
+  <xs:element name="DataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DataSet1" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSet1">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
         <xs:element name="pa_ReporteMateriasOfertadas" msprop:Generator_RowEvHandlerName="pa_ReporteMateriasOfertadasRowChangeEventHandler" msprop:Generator_RowDeletedName="pa_ReporteMateriasOfertadasRowDeleted" msprop:Generator_RowDeletingName="pa_ReporteMateriasOfertadasRowDeleting" msprop:Generator_RowEvArgName="pa_ReporteMateriasOfertadasRowChangeEvent" msprop:Generator_TablePropName="pa_ReporteMateriasOfertadas" msprop:Generator_RowChangedName="pa_ReporteMateriasOfertadasRowChanged" msprop:Generator_RowChangingName="pa_ReporteMateriasOfertadasRowChanging" msprop:Generator_TableClassName="pa_ReporteMateriasOfertadasDataTable" msprop:Generator_RowClassName="pa_ReporteMateriasOfertadasRow" msprop:Generator_TableVarName="tablepa_ReporteMateriasOfertadas" msprop:Generator_UserTableName="pa_ReporteMateriasOfertadas">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="id_Materia" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:Generator_ColumnPropNameInRow="id_Materia" msprop:Generator_ColumnPropNameInTable="id_MateriaColumn" msprop:Generator_ColumnVarNameInTable="columnid_Materia" msprop:Generator_UserColumnName="id_Materia" type="xs:int" />
-              <xs:element name="NombreMateria" msprop:Generator_ColumnPropNameInRow="NombreMateria" msprop:Generator_ColumnPropNameInTable="NombreMateriaColumn" msprop:Generator_ColumnVarNameInTable="columnNombreMateria" msprop:Generator_UserColumnName="NombreMateria" minOccurs="0">
+              <xs:element name="id_materia" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:Generator_ColumnPropNameInRow="id_materia" msprop:Generator_ColumnPropNameInTable="id_materiaColumn" msprop:Generator_ColumnVarNameInTable="columnid_materia" msprop:Generator_UserColumnName="id_materia" type="xs:int" />
+              <xs:element name="nombre_materia" msprop:Generator_ColumnPropNameInRow="nombre_materia" msprop:Generator_ColumnPropNameInTable="nombre_materiaColumn" msprop:Generator_ColumnVarNameInTable="columnnombre_materia" msprop:Generator_UserColumnName="nombre_materia" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="100" />
@@ -59,23 +55,7 @@
               <xs:element name="creditos" msprop:Generator_ColumnPropNameInRow="creditos" msprop:Generator_ColumnPropNameInTable="creditosColumn" msprop:Generator_ColumnVarNameInTable="columncreditos" msprop:Generator_UserColumnName="creditos" type="xs:int" minOccurs="0" />
               <xs:element name="semestre" msprop:Generator_ColumnPropNameInRow="semestre" msprop:Generator_ColumnPropNameInTable="semestreColumn" msprop:Generator_ColumnVarNameInTable="columnsemestre" msprop:Generator_UserColumnName="semestre" type="xs:int" minOccurs="0" />
               <xs:element name="anio" msprop:Generator_ColumnPropNameInRow="anio" msprop:Generator_ColumnPropNameInTable="anioColumn" msprop:Generator_ColumnVarNameInTable="columnanio" msprop:Generator_UserColumnName="anio" type="xs:int" minOccurs="0" />
-              <xs:element name="hora_inicio" msprop:Generator_ColumnPropNameInRow="hora_inicio" msprop:Generator_ColumnPropNameInTable="hora_inicioColumn" msprop:Generator_ColumnVarNameInTable="columnhora_inicio" msprop:Generator_UserColumnName="hora_inicio" type="xs:duration" minOccurs="0" />
-              <xs:element name="hora_fin" msprop:Generator_ColumnPropNameInRow="hora_fin" msprop:Generator_ColumnPropNameInTable="hora_finColumn" msprop:Generator_ColumnVarNameInTable="columnhora_fin" msprop:Generator_UserColumnName="hora_fin" type="xs:duration" minOccurs="0" />
-              <xs:element name="num_aula" msprop:Generator_ColumnPropNameInRow="num_aula" msprop:Generator_ColumnPropNameInTable="num_aulaColumn" msprop:Generator_ColumnVarNameInTable="columnnum_aula" msprop:Generator_UserColumnName="num_aula" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="10" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="bloque" msprop:Generator_ColumnPropNameInRow="bloque" msprop:Generator_ColumnPropNameInTable="bloqueColumn" msprop:Generator_ColumnVarNameInTable="columnbloque" msprop:Generator_UserColumnName="bloque" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="10" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="NombreDocente" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="NombreDocente" msprop:Generator_ColumnPropNameInTable="NombreDocenteColumn" msprop:Generator_ColumnVarNameInTable="columnNombreDocente" msprop:Generator_UserColumnName="NombreDocente" minOccurs="0">
+              <xs:element name="nombre_docente" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="nombre_docente" msprop:Generator_ColumnPropNameInTable="nombre_docenteColumn" msprop:Generator_ColumnVarNameInTable="columnnombre_docente" msprop:Generator_UserColumnName="nombre_docente" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="201" />
@@ -89,7 +69,7 @@
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:pa_ReporteMateriasOfertadas" />
-      <xs:field xpath="mstns:id_Materia" />
+      <xs:field xpath="mstns:id_materia" />
     </xs:unique>
   </xs:element>
 </xs:schema>

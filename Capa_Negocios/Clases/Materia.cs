@@ -10,11 +10,6 @@ namespace Capa_Negocios
     {
         public int Id { get; set; }
         public string Nombre { get; set; }
-        public string Grupo { get; set; }
-        public int Creditos { get; set; }
-        public int Nota { get; set; }
-        public string HoraInicio { get; set; }
-        public string HoraFin{ get; set; }
-        public string Horario => $"{HoraInicio} - {HoraFin}";
+        public int Creditos { get; set; }  
     }
 }

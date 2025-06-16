@@ -13,6 +13,7 @@ namespace Capa_Negocios
         public string Apellido { get; set; }
         public int CI { get; set; }
         public int Contrasena { get; set; }
+        public string NombreCompleto => $"{Nombre} {Apellido}";
 
     }
 }

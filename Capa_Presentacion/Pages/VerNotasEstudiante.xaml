@@ -107,10 +107,22 @@
                 <Border Background="White" BorderBrush="#e0e0e0" BorderThickness="1" CornerRadius="3">
                     <DataGrid x:Name="dgNotas" Style="{StaticResource ModernDataGrid}" Height="200">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="ID" Binding="{Binding Id}" />
-                            <DataGridTextColumn Header="Materia" Binding="{Binding Nombre}" />
+                            <DataGridTextColumn Header="Estudiante" Binding="{Binding NombreEstudiante}" />
+                            <DataGridTextColumn Header="Materia" Binding="{Binding NombreMateria}" />
+                            <DataGridTextColumn Header="Créditos" Binding="{Binding Creditos}" />
+                            <DataGridTextColumn Header="Semestre" Binding="{Binding Semestre}" />
+                            <DataGridTextColumn Header="Año" Binding="{Binding Anio}" />
                             <DataGridTextColumn Header="Grupo" Binding="{Binding Grupo}" />
-                            <DataGridTextColumn Header="Nota" Binding="{Binding Nota}" />
+                            <DataGridTextColumn Header="Docente" Binding="{Binding Docente}" />
+
+                            <!-- Notas por parcial -->
+                            <DataGridTextColumn Header="Parcial 1" Binding="{Binding Nota1}" />
+                            <DataGridTextColumn Header="Parcial 2" Binding="{Binding Nota2}" />
+                            <DataGridTextColumn Header="Parcial 3" Binding="{Binding Nota3}" />
+                            <DataGridTextColumn Header="Parcial 4" Binding="{Binding Nota4}" />
+
+                            <DataGridTextColumn Header="Nota Final" Binding="{Binding NotaFinal}" />
+                            <DataGridTextColumn Header="Estado" Binding="{Binding Estado}" />
                         </DataGrid.Columns>
                     </DataGrid>
                 </Border>

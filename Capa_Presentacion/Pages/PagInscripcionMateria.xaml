@@ -358,10 +358,10 @@
                               MinWidth="400"
                               SelectionChanged="dgMateriasDisponibles_SelectionChanged">
                             <DataGrid.Columns>
-                                <DataGridTextColumn Header="Materia" Binding="{Binding Nombre}" />
+                                <DataGridTextColumn Header="ID Materia" Binding="{Binding Id}" />
+                                <DataGridTextColumn Header="Materia" Binding="{Binding NombreMateria}" />
                                 <DataGridTextColumn Header="Grupo" Binding="{Binding Grupo}" />
                                 <DataGridTextColumn Header="Créditos" Binding="{Binding Creditos}" />
-                                <DataGridTextColumn Header="Horario" Binding="{Binding Horario}" />
                             </DataGrid.Columns>
                         </DataGrid>
                     </Border>
@@ -383,10 +383,10 @@
                               Height="300"
                               MinWidth="400" SelectionChanged="dgMateriasSeleccionadas_SelectionChanged">
                             <DataGrid.Columns>
-                                <DataGridTextColumn Header="Materia" Binding="{Binding Nombre}" />
+                                <DataGridTextColumn Header="ID Materia" Binding="{Binding Id}" />
+                                <DataGridTextColumn Header="Materia" Binding="{Binding NombreMateria}" />
                                 <DataGridTextColumn Header="Grupo" Binding="{Binding Grupo}" />
                                 <DataGridTextColumn Header="Créditos" Binding="{Binding Creditos}" />
-                                <DataGridTextColumn Header="Horario" Binding="{Binding Horario}" />
                             </DataGrid.Columns>
                         </DataGrid>
                     </Border>
